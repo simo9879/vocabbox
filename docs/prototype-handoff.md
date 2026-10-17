@@ -1,0 +1,76 @@
+# Prototype handoff for future agents
+
+This document records how the first playable prototype was assembled and where future work should begin. The prototype is a baseline to rework in small, reviewable steps. The product direction and acceptance goals live in [game-spec.md](game-spec.md); day-to-day agent rules live in the repository-root [AGENTS.md](../AGENTS.md).
+
+## What the first step delivered
+
+The existing Godot 4 project was turned into a playable desktop English-shopping adventure. The player walks through a small city, enters Sunny Market, talks to a worker, collects one bunch of bananas, speaks with a customer, checks out, and sees a star-rated results screen. The game has a bird companion called Pip, keyboard and mouse controls, a third-person follow camera, objective UI, authored answer choices, retry and hint flows, a pause/settings menu, saved best stars, and bundled synthesized speech with subtitles.
+
+The implementation was built quickly to establish the full interaction loop. The player, Pip, and outdoor city now use imported models. The supermarket interior, non-player characters, fruit, and shelves are still simple geometry generated at runtime. Continue replacing this remaining geometry with reviewed model assets and authored scenes, preserving a runnable build during the transition.
+
+The active player now uses a cleaned derivative of the Cartoon Asian Boy model, whose Fab source and Standard License were confirmed by the project owner. The original source archive and legacy prototype copy are kept under the ignored `.local/archive/` folder. Other legacy imported model files remain unreviewed and unused. See [asset-credits.md](asset-credits.md).
+
+## Where to look
+
+| Area | Current source of truth | Notes for the next agent |
+|---|---|---|
+| Project startup | `vocab-box/project.godot`, `vocab-box/scenes/main.tscn` | The configured startup scene is `scenes/main.tscn`. The old root-level scene and movement scripts are archived under `.local/archive/legacy-prototype/`. |
+| Mission flow and app orchestration | `vocab-box/scripts/main.gd`, `vocab-box/scripts/mission.gd` | Mission progression is ordered: city, worker, bananas, customer, checkout, results. Keep UI and scene ownership clear as this code is refactored. |
+| Lesson content and evaluation | `vocab-box/lessons/banana.tres`, `vocab-box/scripts/lesson.gd`, `vocab-box/scripts/evaluator.gd` | Choices are authored, shuffled, and evaluated by response ID. There is no free-text input, speech recognition, or AI evaluation. Correct but less formal English must remain recognized as correct. |
+| Character and camera | `vocab-box/scenes/player.tscn`, `vocab-box/scripts/player.gd`, `camera.gd`, `bird.gd` and matching scenes | The player scene owns the imported model and collision capsule; the player script owns movement, facing, and idle/walk playback. Pip's scene instances the Yellow Chick GLB; `bird.gd` owns following and its animation state. |
+| City and shop | `vocab-box/scenes/city_ground.tscn`, `city_shops.tscn`, `city.tscn`, and `vocab-box/scripts/supermarket.gd` | The outdoor city is authored from Kenney models and invisible collision. The supermarket interior remains script-built. |
+| Interaction and dialogue UI | `vocab-box/scripts/interactable.gd`, `dialogue.gd` and their scenes | Interaction is proximity-based. The UI is built with Godot controls. |
+| Save and audio | `vocab-box/scripts/save.gd`, `vocab-box/audio/`, `tools/generate_audio.py` | Best stars and volume levels persist locally. Audio generation is offline; see [audio-generation.md](audio-generation.md). |
+| Checks and packaging | `vocab-box/tests/`, `tools/build_linux.sh`, `builds/linux/` | Source includes mission/evaluation and route checks. Exported lesson data needs a regression check because Godot resource conversion previously dropped packed string arrays. The current objective and hint values use indexed dictionaries. |
+
+## How to continue the rework
+
+Work incrementally. Pick one area or behavior, identify its owning scene/script and its consumers, and keep task ownership separate when multiple agents work in parallel. All agents share one filesystem; do not have parallel agents edit the same file without a clear integration owner.
+
+For a world-art task, author or import actual 3D models and assemble them in Godot scenes. Do not add code that creates primitive meshes or scripted 3D scenery. Check asset source and license, record the credit, and connect the authored scene to the existing gameplay interfaces. Replace one location or object group at a time so the mission remains playable. If suitable reviewed models are not ready, leave the area for the owning art task instead of introducing procedural stand-ins.
+
+When changing a shared interface—such as an interaction signal, a lesson resource field, or a scene entry marker—update its consumers and tell the integration owner. Keep lesson content editable and keep response evaluation separate from dialogue display and mission progression. Preserve the four checklist tasks and the distinction between “understandable” and “strong” unless the product specification is deliberately revised.
+
+## Existing design decisions to preserve or explicitly revisit
+
+- WASD/arrows move; mouse orbits; E interacts; Escape pauses or closes dialogue; H asks Pip for help; R replays Pip's last spoken line.
+- The player cannot jump. Conversations stop movement and release the mouse cursor.
+- Only the supermarket is enterable in the city. An unfinished shop attempt requires confirmation before leaving and resets after departure.
+- A needs-practice answer retries. After two unsuccessful attempts Pip highlights a strong authored answer, which the player still selects. Hints do not lower stars.
+- Stars depend on completion and the best quality in three conversations, never speed or pronunciation. Best stars cannot decrease across replays.
+- Spoken lines have subtitles. Answer choices are spoken only when requested. Voice, music, and effects have independent saved volume settings.
+- Assets with unclear redistribution rights must not enter a distributed build until reviewed.
+
+## Existing verification and limitations
+
+The first implementation was checked with automated mission, evaluator, star, save, resource-export, and physics-driven route tests, plus a desktop playthrough and 720p/1080p visual checks. Hardware, measured frame rate, screenshots, known limitations, and the exact test claims are in [verification.md](verification.md). Re-run relevant checks after changing their behavior, and update the report when new evidence replaces the current baseline.
+
+The Linux bundle is a portable engine-plus-pack build made with the installed Godot runtime because matching release export templates were not available. Speech is temporary synthetic narration. Model-based art replacement, professional audio review, child usability review, mobile/controller support, and non-Linux exports remain future work.
+
+## Current player art handoff
+
+- `tools/build_asian_boy_player.py` rebinds an existing mirrored shoe in `.local/archive/player-authoring/boy.blend` and exports `.local/archive/generated-player/AsianBoy_player.glb`. The retargeting tools use that local intermediate to regenerate the active `models/AsianBoy_animated.glb`. These authoring inputs are ignored by Git; the runtime model stays in `vocab-box/models/`. The player scene instances it below `Visual` at 0.75 scale and keeps the existing 1.7 m collision capsule. `scripts/player.gd` still controls movement and facing; `scripts/bird.gd` reads `Visual` orientation.
+- `tools/prepare_asian_boy_mixamo.py` creates `.local/archive/generated-player/AsianBoy_unrigged_for_Mixamo.obj` from the existing body mesh for Mixamo auto-rigging. The original 259-bone FBX failed Mixamo's skeleton mapping and motion generation. The returned `Idle.fbx` and `Walking.fbx` in `.local/archive/player-authoring/mixamo/` are baked onto the original player rig by `tools/retarget_asian_boy_mixamo.py` into `models/AsianBoy_animated.glb`. The script also removes concealed torso skin that otherwise clips through the shirt during bending. The player scene uses this GLB; `scripts/player.gd` loops and blends its animations based on ground speed. Horizontal motion remains in the Godot controller.
+- The project owner plans to submit a Windows executable only. The current documented bundle is Linux, so a Windows export and played check are still required for that delivery target.
+
+## Current Pip art handoff
+
+- The owner supplied the complete Yellow Chick archive. Its Fab source and author instructions are recorded in [asset-credits.md](asset-credits.md). All source files are kept under ignored `.local/archive/bird-authoring/`; `tools/bird_source/README.md` records provenance and rebuild steps.
+- `python3 tools/build_yellow_chick.py` converts the baked FBXs to `vocab-box/models/YellowChick_animated.glb`. Blender 3.6 could not import the original mGear FBX hierarchy, so the builder uses Godot's FBX importer. The GLB includes the supplied yellow color atlas and Fly, Idle, and Talk clips. Fly uses the one-second wing cycle at source frames 41–65, with the last four frames blended to its starting pose; the source's idle transitions and vertical root travel are omitted. Talk uses the same wing cycle with a one-second Feed beak motion. The FBXs contain stray keys through 9.33 seconds, so the builder trims keys outside each clip's authored range before export.
+- `vocab-box/scenes/bird.tscn` instances the model at 0.5 scale, reduced from 0.75 at the owner's request. `vocab-box/scripts/bird.gd` keeps Pip hovering beside the player's right shoulder at local offset `(0.40, 1.43, 0.10)`: Fly when the player is standing or moving, Talk during dialogue, and faster Fly with an orbit for celebration. It sets loop mode at runtime because glTF import defaults to nonlooping, and restarts playback if it stops. The bird still has no collision. A rendered in-game playthrough and size/position tuning remain to be done; see [verification.md](verification.md).
+
+## Current city art handoff
+
+- The owner supplied Kenney City Kit Commercial 2.1, Roads 2.2, and Suburban 2.0, all with included CC0 licenses. `vocab-box/scenes/city_shops.tscn` places three GLB shop exteriors, box collision, storefront labels, and the existing `entrance`/`closed` interactions. `city_ground.tscn` owns the road and pavement model grid, a crossing, streetlights, trees, two houses, and invisible ground/perimeter collision. `city.tscn` instances both and retains Entry/Exit markers. The old `city.gd` geometry generator was removed.
+- After the owner observed doors smaller than the player, `city_shops.tscn` scales the market to 6.5 and the library/bakery to 4.8, with matching collision and interaction placement. The character scene's visual scale and 1.7 m collision capsule are unchanged.
+- The market entrance remains at the center of the block. The adjacent library and bakery retain their `closed` interactions. `Exit` moved to `(0, 0.2, -1.5)` so returning from the supermarket places the player near the larger market frontage. The headless physics route passes, but model-facing direction, sign placement, and frame rate still need a rendered, manually played check.
+- `vocab-box/scenes/city_backdrop.tscn` extends the visible road and pavement beyond the bounded play area and places non-interactive Kenney commercial buildings, suburban houses, a distant low-detail skyline, and trees around it. `city.tscn` instances this scene separately from the playable ground and shops. The invisible play boundary, entrance, controls, and mission flow remain in their existing owners. The backdrop needs a rendered visual and frame-rate check.
+- `vocab-box/scenes/city_outer_blocks.tscn` adds a second decorative ring beyond the first backdrop: road intersections and pavement, 26 suburban houses, 18 trees, and six low-detail commercial buildings on the far skyline. It has no collision or gameplay interactions. The visible city now extends to about 42 m either side of center and 39 m along the street, while the playable boundary remains unchanged.
+- `city_ground.tscn` now uses the Kenney `tile-high` slab for the market-side pavement at 0.30 m, while the road remains at 0.13 m. Its central `tile-slant` ramp meets the road crossing; authored collision follows the raised slab and slope. The shop instance, nearby houses, trees, and city return marker were raised to the new sidewalk level. `materials/city_pavement.tres` uses the owner-supplied CC0 Stone Brick Pavement 003 image with Godot world triplanar mapping. `paved_tile.tscn`, `paved_ramp.tscn`, and `paved_low_tile.tscn` keep the material shared across the playable block and lower decorative sidewalks; road tiles retain their Kenney surface.
+- The owner edited the road connections in the city scenes after the raised-pavement pass. Preserve that current layout. The eight front-row high tiles in `city_ground.tscn` instance `paved_curb_tile.tscn`, which uses `materials/painted_curb.tres` on the existing Kenney mesh. Its Godot spatial shader colors the road-facing curb and a 0.17 m top lip in aligned red/white bands; the remaining surface retains the shared pavement image. There are no separate paint planes, new meshes, or collision changes. The crossing ramp remains clear.
+
+## Current daylight handoff
+
+- `vocab-box/scenes/daylight.tscn` is the source of truth for the sunny sky, ambient light, and directional sun. Both `city.tscn` and `supermarket.tscn` instance it, so the daylight stays consistent when changing locations. `scripts/main.gd` no longer creates the environment or sun at runtime.
+- The scene uses Godot's `ProceduralSkyMaterial`, sky ambient/reflected light, and a warm `DirectionalLight3D` with shadows limited to 40 m. Its current palette has a soft blue upper sky, cream-yellow horizon and ground haze, warm ambient fill, and a warmer sun. Golden distance fog begins at 22 m and reaches its configured maximum at 62 m. Both locations instance this shared scene; the shop is small enough that most views stay before the fog start. `assets/sky/fair_weather_clouds.png` is an original cloud texture connected through the material's native `sky_cover` property, with a warm tint and open black areas that add no cover. The image provenance is recorded in [asset-credits.md](asset-credits.md).
+- Godot 4.7.2 imported and ran the source project headlessly, and the physics-driven full route passed after the earlier daylight change. The cloud texture imported headlessly; the sky, cloud and shadow appearance, and their frame-rate cost on the target desktop, still need a rendered playthrough.
