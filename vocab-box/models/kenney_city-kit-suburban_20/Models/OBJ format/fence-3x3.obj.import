@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cvxb7vcbqepqa"
+path="res://.godot/imported/fence-3x3.obj-e87e3aaabb0ca99771cf1115e9050fc7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fence-3x3.obj-e87e3aaabb0ca99771cf1115e9050fc7.mesh"]
+
+source_file="res://models/kenney_city-kit-suburban_20/Models/OBJ format/fence-3x3.obj"
+dest_files=["res://.godot/imported/fence-3x3.obj-e87e3aaabb0ca99771cf1115e9050fc7.mesh", "res://.godot/imported/fence-3x3.obj-e87e3aaabb0ca99771cf1115e9050fc7.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
