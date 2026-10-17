@@ -1,0 +1,6 @@
+extends Resource
+@export var encounters: Dictionary = {}
+@export var lines: Dictionary = {}
+@export var objectives: Dictionary = {}
+@export var hints: Dictionary = {}
+@export var voice_paths: Dictionary = {}
