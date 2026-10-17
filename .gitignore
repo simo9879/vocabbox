@@ -1,0 +1,13 @@
+# Godot editor and import cache
+.godot/
+**/.godot/
+
+# Local-only assets, caches, and generated builds
+.local/
+builds/
+**/__pycache__/
+*.py[cod]
+*.tmp
+
+# Blender automatic backup files
+*.blend1
