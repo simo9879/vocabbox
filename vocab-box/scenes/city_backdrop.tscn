@@ -1,0 +1,246 @@
+[gd_scene format=3 uid="uid://2dudsbiajj66"]
+
+[ext_resource type="PackedScene" path="res://scenes/paved_low_tile.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://cdpk4aaclm3kx" path="res://models/kenney_city-kit-roads/Models/GLB format/road-straight.glb" id="2"]
+[ext_resource type="PackedScene" uid="uid://d4hstmyr5f60w" path="res://models/kenney_city-kit-commercial_2.1/Models/GLB format/building-a.glb" id="3"]
+[ext_resource type="PackedScene" uid="uid://dfth5ee6077ob" path="res://models/kenney_city-kit-commercial_2.1/Models/GLB format/building-c.glb" id="4"]
+[ext_resource type="PackedScene" uid="uid://mklm0oduq0cl" path="res://models/kenney_city-kit-commercial_2.1/Models/GLB format/building-d.glb" id="5"]
+[ext_resource type="PackedScene" uid="uid://rnavaxuigkwv" path="res://models/kenney_city-kit-commercial_2.1/Models/GLB format/building-f.glb" id="6"]
+[ext_resource type="PackedScene" uid="uid://co1i2epafx3op" path="res://models/kenney_city-kit-commercial_2.1/Models/GLB format/building-g.glb" id="7"]
+[ext_resource type="PackedScene" uid="uid://bi4jgreqecf01" path="res://models/kenney_city-kit-commercial_2.1/Models/GLB format/building-i.glb" id="8"]
+[ext_resource type="PackedScene" uid="uid://c4kknpjseblas" path="res://models/kenney_city-kit-suburban_20/Models/GLB format/building-type-b.glb" id="9"]
+[ext_resource type="PackedScene" uid="uid://dear3ig56qs1k" path="res://models/kenney_city-kit-suburban_20/Models/GLB format/building-type-d.glb" id="10"]
+[ext_resource type="PackedScene" uid="uid://bni7vju24qyem" path="res://models/kenney_city-kit-suburban_20/Models/GLB format/building-type-n.glb" id="11"]
+[ext_resource type="PackedScene" uid="uid://dpi2kwlq2oc03" path="res://models/kenney_city-kit-commercial_2.1/Models/GLB format/low-detail-building-a.glb" id="12"]
+[ext_resource type="PackedScene" uid="uid://c5o3jijd05ld1" path="res://models/kenney_city-kit-commercial_2.1/Models/GLB format/low-detail-building-h.glb" id="13"]
+[ext_resource type="PackedScene" uid="uid://qqxvk3if2ge2" path="res://models/kenney_city-kit-suburban_20/Models/GLB format/tree-small.glb" id="14"]
+
+[node name="CityBackdrop" type="Node3D" unique_id=894452389]
+
+[node name="GroundContinuation" type="Node3D" parent="." unique_id=1833584035]
+
+[node name="Tile_M19_5_M22_75" parent="GroundContinuation" unique_id=598227529 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -19.5, 0, -22.75)
+
+[node name="Tile_M13_M22_75" parent="GroundContinuation" unique_id=818372047 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -13, 0, -22.75)
+
+[node name="Tile_M6_5_M22_75" parent="GroundContinuation" unique_id=698609392 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -6.5, 0, -22.75)
+
+[node name="Tile_0_M22_75" parent="GroundContinuation" unique_id=2137323659 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 0, 0, -22.75)
+
+[node name="Tile_6_5_M22_75" parent="GroundContinuation" unique_id=1974182444 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 6.5, 0, -22.75)
+
+[node name="Tile_13_M22_75" parent="GroundContinuation" unique_id=1793557628 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 13, 0, -22.75)
+
+[node name="Tile_19_5_M22_75" parent="GroundContinuation" unique_id=238021096 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 19.5, 0, -22.75)
+
+[node name="Tile_M19_5_M16_25" parent="GroundContinuation" unique_id=1616940917 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -19.5, 0, -16.25)
+
+[node name="Tile_M13_M16_25" parent="GroundContinuation" unique_id=1968853900 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -13, 0, -16.25)
+
+[node name="Tile_M6_5_M16_25" parent="GroundContinuation" unique_id=2068202543 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -6.5, 0, -16.25)
+
+[node name="Tile_0_M16_25" parent="GroundContinuation" unique_id=260900944 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 0, 0, -16.25)
+
+[node name="Tile_6_5_M16_25" parent="GroundContinuation" unique_id=1092328342 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 6.5, 0, -16.25)
+
+[node name="Tile_13_M16_25" parent="GroundContinuation" unique_id=1102163190 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 13, 0, -16.25)
+
+[node name="Tile_19_5_M16_25" parent="GroundContinuation" unique_id=1047386758 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 19.5, 0, -16.25)
+
+[node name="Tile_M19_5_22_75" parent="GroundContinuation" unique_id=25075820 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -19.5, 0, 22.75)
+
+[node name="Tile_M19_5_22_76" parent="GroundContinuation" unique_id=90208484 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -19.5, 0, 16.301102)
+
+[node name="Tile_M19_5_22_77" parent="GroundContinuation" unique_id=1069634458 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -13.002, 0, 16.301)
+
+[node name="Tile_M19_5_22_78" parent="GroundContinuation" unique_id=1367925766 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -6.5438366, 0, 16.301)
+
+[node name="Tile_M19_5_22_79" parent="GroundContinuation" unique_id=1540010984 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -0.22727394, 0, 16.301)
+
+[node name="Tile_M19_5_22_80" parent="GroundContinuation" unique_id=2016968168 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 5.530546, 0, 16.301)
+
+[node name="Tile_M19_5_22_81" parent="GroundContinuation" unique_id=1798251173 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 11.928025, 0, 16.301)
+
+[node name="Tile_M19_5_22_82" parent="GroundContinuation" unique_id=1300357749 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 18.46111, 0, 16.301)
+
+[node name="Tile_M19_5_22_83" parent="GroundContinuation" unique_id=1388871525 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 22.060684, 0, 16.301)
+
+[node name="Tile_M13_22_75" parent="GroundContinuation" unique_id=1260676969 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -13, 0, 22.75)
+
+[node name="Tile_M6_5_22_75" parent="GroundContinuation" unique_id=1350032137 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -6.5, 0, 22.75)
+
+[node name="Tile_0_22_75" parent="GroundContinuation" unique_id=1086495890 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 0, 0, 22.75)
+
+[node name="Tile_6_5_22_75" parent="GroundContinuation" unique_id=573700609 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 6.5, 0, 22.75)
+
+[node name="Tile_13_22_75" parent="GroundContinuation" unique_id=723163483 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 13, 0, 22.75)
+
+[node name="Tile_19_5_22_75" parent="GroundContinuation" unique_id=1028623675 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 19.5, 0, 22.75)
+
+[node name="Tile_Left_M22_75" parent="GroundContinuation" unique_id=1780753919 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -26, 0, -22.75)
+
+[node name="Tile_Left_M16_25" parent="GroundContinuation" unique_id=1534890012 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -26, 0, -16.25)
+
+[node name="Tile_Left_M9_75" parent="GroundContinuation" unique_id=122258149 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -26, 0, -9.75)
+
+[node name="Tile_Left_M3_25" parent="GroundContinuation" unique_id=1371096396 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -26, 0, -3.25)
+
+[node name="Tile_Left_3_25" parent="GroundContinuation" unique_id=104107559 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -26, 0, 3.25)
+
+[node name="Tile_Left_16_25" parent="GroundContinuation" unique_id=375535975 instance=ExtResource("1")]
+transform = Transform3D(6.4999995, 0, 0, 0, 6.4999995, 0, 0, 0, 6.4999995, -26, 0, 16.25)
+
+[node name="Tile_Left_22_75" parent="GroundContinuation" unique_id=1504502467 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, -26, 0, 22.75)
+
+[node name="Tile_Right_M22_75" parent="GroundContinuation" unique_id=360714415 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 26, 0, -22.75)
+
+[node name="Tile_Right_M16_25" parent="GroundContinuation" unique_id=941124001 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 26, 0, -16.25)
+
+[node name="Tile_Right_M9_75" parent="GroundContinuation" unique_id=1253881661 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 26, 0, -9.75)
+
+[node name="Tile_Right_M3_25" parent="GroundContinuation" unique_id=447139437 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 26, 0, -3.25)
+
+[node name="Tile_Right_3_25" parent="GroundContinuation" unique_id=1963533537 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 26, 0, 3.25)
+
+[node name="Tile_Right_16_25" parent="GroundContinuation" unique_id=1365122517 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 26, 0, 16.25)
+
+[node name="Tile_Right_22_75" parent="GroundContinuation" unique_id=2063359600 instance=ExtResource("1")]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 26, 0, 22.75)
+
+[node name="BackStreet" type="Node3D" parent="." unique_id=1740439525]
+
+[node name="BackStoreWest" parent="BackStreet" unique_id=200965147 instance=ExtResource("7")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -19, 0.13, -19)
+
+[node name="BackStoreLeft" parent="BackStreet" unique_id=1366490827 instance=ExtResource("8")]
+transform = Transform3D(5.5, 0, 0, 0, 5.5, 0, 0, 0, 5.5, -12, 0.13, -19)
+
+[node name="BackStoreMidLeft" parent="BackStreet" unique_id=118083698 instance=ExtResource("3")]
+transform = Transform3D(6.3, 0, 0, 0, 6.3, 0, 0, 0, 6.3, -4, 0.13, -19)
+
+[node name="BackStoreMidRight" parent="BackStreet" unique_id=2131801186 instance=ExtResource("4")]
+transform = Transform3D(6.7, 0, 0, 0, 6.7, 0, 0, 0, 6.7, 4, 0.13, -19)
+
+[node name="BackStoreRight" parent="BackStreet" unique_id=764594547 instance=ExtResource("6")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 12, 0.13, -19)
+
+[node name="BackStoreEast" parent="BackStreet" unique_id=1115500594 instance=ExtResource("5")]
+transform = Transform3D(6.2, 0, 0, 0, 6.2, 0, 0, 0, 6.2, 19, 0.13, -19)
+
+[node name="FrontStreet" type="Node3D" parent="." unique_id=1546828957]
+
+[node name="FrontStoreWest" parent="FrontStreet" unique_id=1666988021 instance=ExtResource("5")]
+transform = Transform3D(-6.2, 0, -5.420212e-07, 0, 6.2, 0, 5.420212e-07, 0, -6.2, -19, 0.13, 23)
+
+[node name="FrontStoreLeft" parent="FrontStreet" unique_id=1382545227 instance=ExtResource("3")]
+transform = Transform3D(-6.5, 0, -5.68248e-07, 0, 6.5, 0, 5.68248e-07, 0, -6.5, -12, 0.13, 23)
+
+[node name="FrontStoreMidLeft" parent="FrontStreet" unique_id=866900806 instance=ExtResource("4")]
+transform = Transform3D(-6.5, 0, -5.68248e-07, 0, 6.5, 0, 5.68248e-07, 0, -6.5, -5, 0.13, 23)
+
+[node name="FrontStoreMidRight" parent="FrontStreet" unique_id=897763805 instance=ExtResource("7")]
+transform = Transform3D(-6, 0, -5.2453663e-07, 0, 6, 0, 5.2453663e-07, 0, -6, 3, 0.13, 23)
+
+[node name="FrontStoreRight" parent="FrontStreet" unique_id=997676862 instance=ExtResource("8")]
+transform = Transform3D(-5.5, 0, -4.808253e-07, 0, 5.5, 0, 4.808253e-07, 0, -5.5, 11, 0.13, 23)
+
+[node name="FrontStoreEast" parent="FrontStreet" unique_id=2057616881 instance=ExtResource("6")]
+transform = Transform3D(-6, 0, -5.2453663e-07, 0, 6, 0, 5.2453663e-07, 0, -6, 19, 0.13, 23)
+
+[node name="SideBlocks" type="Node3D" parent="." unique_id=1301688591]
+
+[node name="LeftHouseBack" parent="SideBlocks" unique_id=312003940 instance=ExtResource("9")]
+transform = Transform3D(-2.0107238e-07, 0, 4.6, 0, 4.6, 0, -4.6, 0, -2.0107238e-07, -27.7, 0.13, -8)
+
+[node name="LeftHouseMiddle" parent="SideBlocks" unique_id=1773755884 instance=ExtResource("11")]
+transform = Transform3D(-2.0107238e-07, 0, 4.6, 0, 4.6, 0, -4.6, 0, -2.0107238e-07, -27.7, 0.13, 17.951958)
+
+[node name="LeftHouseMiddle2" parent="SideBlocks" unique_id=1243314442 instance=ExtResource("11")]
+transform = Transform3D(-2.0107238e-07, 0, 4.6, 0, 4.6, 0, -4.6, 0, -2.0107238e-07, 26.095074, 0.13, 17.951958)
+
+[node name="RightHouseBack" parent="SideBlocks" unique_id=111205599 instance=ExtResource("10")]
+transform = Transform3D(-2.0107238e-07, 0, -4.6, 0, 4.6, 0, 4.6, 0, -2.0107238e-07, 27.7, 0.13, -8)
+
+[node name="RightHouseMiddle" parent="SideBlocks" unique_id=475404193 instance=ExtResource("9")]
+transform = Transform3D(-2.0107238e-07, 0, -4.6, 0, 4.6, 0, 4.6, 0, -2.0107238e-07, 27.7, 0.13, 1)
+
+[node name="RightHouseMiddle2" parent="SideBlocks" unique_id=4914941 instance=ExtResource("9")]
+transform = Transform3D(-2.0107238e-07, 0, -4.6, 0, 4.6, 0, 4.6, 0, -2.0107238e-07, -26.198776, 0.13, 1)
+
+[node name="DistantSkyline" type="Node3D" parent="." unique_id=1834154134]
+
+[node name="BackRoofWest" parent="DistantSkyline" unique_id=326823763 instance=ExtResource("13")]
+transform = Transform3D(5.8, 0, 0, 0, 5.8, 0, 0, 0, 5.8, -15, 0.13, -24.5)
+
+[node name="BackRoofCenter" parent="DistantSkyline" unique_id=558004664 instance=ExtResource("12")]
+transform = Transform3D(5.5, 0, 0, 0, 5.5, 0, 0, 0, 5.5, 0, 0.13, -24.5)
+
+[node name="BackRoofEast" parent="DistantSkyline" unique_id=1449807000 instance=ExtResource("13")]
+transform = Transform3D(5.7, 0, 0, 0, 5.7, 0, 0, 0, 5.7, 15, 0.13, -24.5)
+
+[node name="FrontRoofWest" parent="DistantSkyline" unique_id=935082018 instance=ExtResource("12")]
+transform = Transform3D(-5.5, 0, -4.808253e-07, 0, 5.5, 0, 4.808253e-07, 0, -5.5, -11, 0.13, 25)
+
+[node name="FrontRoofEast" parent="DistantSkyline" unique_id=357888617 instance=ExtResource("13")]
+transform = Transform3D(-5.7, 0, -4.983098e-07, 0, 5.7, 0, 4.983098e-07, 0, -5.7, 11, 0.13, 25)
+
+[node name="StreetTrees" type="Node3D" parent="." unique_id=515173571]
+
+[node name="Tree_1" parent="StreetTrees" unique_id=1234198871 instance=ExtResource("14")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -22, 0.13, 18.5)
+
+[node name="Tree_2" parent="StreetTrees" unique_id=1045464789 instance=ExtResource("14")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -15, 0.13, 20.4)
+
+[node name="Tree_3" parent="StreetTrees" unique_id=1403127977 instance=ExtResource("14")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 15, 0.13, 20.4)
+
+[node name="Tree_4" parent="StreetTrees" unique_id=1585603504 instance=ExtResource("14")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 22, 0.13, 18.5)
+
+[node name="Tile_M13_16_25" parent="." unique_id=2046883311 instance=ExtResource("2")]
+transform = Transform3D(-6.5, 0, -5.68248e-07, 0, 6.5, 0, 5.68248e-07, 0, -6.5, -25.908613, 0, 9.751131)
+
+[node name="Tile_M13_16_26" parent="." unique_id=938854932 instance=ExtResource("2")]
+transform = Transform3D(-6.5, 0, -5.68248e-07, 0, 6.5, 0, 5.68248e-07, 0, -6.5, 25.938215, 0, 9.751131)

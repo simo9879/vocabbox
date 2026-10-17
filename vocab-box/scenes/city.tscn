@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://gfwq26nxw46d"]
+
+[ext_resource type="PackedScene" uid="uid://bp3knlp2a65oy" path="res://scenes/city_ground.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/city_shops.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://qoi50tpt4e0g" path="res://scenes/daylight.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://2dudsbiajj66" path="res://scenes/city_backdrop.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/city_outer_blocks.tscn" id="5"]
+
+[node name="City" type="Node3D" unique_id=208666535]
+
+[node name="Daylight" parent="." unique_id=379878809 instance=ExtResource("3")]
+
+[node name="Ground" parent="." unique_id=448604276 instance=ExtResource("1")]
+
+[node name="Backdrop" parent="." unique_id=68133563 instance=ExtResource("4")]
+
+[node name="OuterBlocks" parent="." unique_id=199017805 instance=ExtResource("5")]
+
+[node name="Shops" parent="." unique_id=1520747930 instance=ExtResource("2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+
+[node name="Entry" type="Marker3D" parent="." unique_id=1989142030]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 5)
+
+[node name="Exit" type="Marker3D" parent="." unique_id=1631437741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -1.5)

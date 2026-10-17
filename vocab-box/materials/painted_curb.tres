@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3]
+
+[ext_resource type="Shader" path="res://materials/painted_curb.gdshader" id="1_shader"]
+[ext_resource type="Texture2D" path="res://models/textures/pavement.png" id="2_pavement"]
+
+[resource]
+shader = ExtResource("1_shader")
+shader_parameter/pavement_texture = ExtResource("2_pavement")

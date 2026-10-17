@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://models/kenney_city-kit-roads/Models/GLB format/tile-high.glb" id="1_tile"]
+[ext_resource type="Material" path="res://materials/city_pavement.tres" id="2_paving"]
+
+[node name="PavedTile" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_tile")]
+scale = Vector3(1, 0.184615, 1)
+
+[node name="tile-high" parent="Model" index="0"]
+material_override = ExtResource("2_paving")

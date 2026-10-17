@@ -1,0 +1,616 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/paved_low_tile.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://models/kenney_city-kit-roads/Models/GLB format/road-straight.glb" id="2"]
+[ext_resource type="PackedScene" path="res://models/kenney_city-kit-roads/Models/GLB format/road-crossroad.glb" id="3"]
+[ext_resource type="PackedScene" path="res://models/kenney_city-kit-suburban_20/Models/GLB format/building-type-b.glb" id="4"]
+[ext_resource type="PackedScene" path="res://models/kenney_city-kit-suburban_20/Models/GLB format/building-type-d.glb" id="5"]
+[ext_resource type="PackedScene" path="res://models/kenney_city-kit-suburban_20/Models/GLB format/building-type-f.glb" id="6"]
+[ext_resource type="PackedScene" path="res://models/kenney_city-kit-suburban_20/Models/GLB format/building-type-n.glb" id="7"]
+[ext_resource type="PackedScene" path="res://models/kenney_city-kit-suburban_20/Models/GLB format/building-type-s.glb" id="8"]
+[ext_resource type="PackedScene" path="res://models/kenney_city-kit-suburban_20/Models/GLB format/building-type-u.glb" id="9"]
+[ext_resource type="PackedScene" path="res://models/kenney_city-kit-suburban_20/Models/GLB format/tree-large.glb" id="10"]
+[ext_resource type="PackedScene" path="res://models/kenney_city-kit-suburban_20/Models/GLB format/tree-small.glb" id="11"]
+[ext_resource type="PackedScene" path="res://models/kenney_city-kit-commercial_2.1/Models/GLB format/low-detail-building-a.glb" id="12"]
+[ext_resource type="PackedScene" path="res://models/kenney_city-kit-commercial_2.1/Models/GLB format/low-detail-building-h.glb" id="13"]
+
+[node name="CityOuterBlocks" type="Node3D"]
+
+[node name="OuterGround" type="Node3D" parent="."]
+
+[node name="Ground_M39_M35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(-39, 0, -35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M32_5_M35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(-32.5, 0, -35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M26_M35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(-26, 0, -35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M19_5_M35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(-19.5, 0, -35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M13_M35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(-13, 0, -35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M6_5_M35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(-6.5, 0, -35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_0_M35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(0, 0, -35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_6_5_M35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(6.5, 0, -35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_13_M35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(13, 0, -35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_19_5_M35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(19.5, 0, -35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_26_M35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(26, 0, -35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_32_5_M35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(32.5, 0, -35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_39_M35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(39, 0, -35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M39_M29_25" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(-39, 0, -29.25)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M32_5_M29_25" parent="OuterGround" instance=ExtResource("3")]
+position = Vector3(-32.5, 0, -29.25)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M26_M29_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(-26, 0, -29.25)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M19_5_M29_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(-19.5, 0, -29.25)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M13_M29_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(-13, 0, -29.25)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M6_5_M29_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(-6.5, 0, -29.25)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_0_M29_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(0, 0, -29.25)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_6_5_M29_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(6.5, 0, -29.25)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_13_M29_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(13, 0, -29.25)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_19_5_M29_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(19.5, 0, -29.25)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_26_M29_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(26, 0, -29.25)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_32_5_M29_25" parent="OuterGround" instance=ExtResource("3")]
+position = Vector3(32.5, 0, -29.25)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_39_M29_25" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(39, 0, -29.25)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M39_29_25" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(-39, 0, 29.25)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M32_5_29_25" parent="OuterGround" instance=ExtResource("3")]
+position = Vector3(-32.5, 0, 29.25)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M26_29_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(-26, 0, 29.25)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M19_5_29_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(-19.5, 0, 29.25)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M13_29_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(-13, 0, 29.25)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M6_5_29_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(-6.5, 0, 29.25)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_0_29_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(0, 0, 29.25)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_6_5_29_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(6.5, 0, 29.25)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_13_29_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(13, 0, 29.25)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_19_5_29_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(19.5, 0, 29.25)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_26_29_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(26, 0, 29.25)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_32_5_29_25" parent="OuterGround" instance=ExtResource("3")]
+position = Vector3(32.5, 0, 29.25)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_39_29_25" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(39, 0, 29.25)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M39_35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(-39, 0, 35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M32_5_35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(-32.5, 0, 35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M26_35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(-26, 0, 35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M19_5_35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(-19.5, 0, 35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M13_35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(-13, 0, 35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M6_5_35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(-6.5, 0, 35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_0_35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(0, 0, 35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_6_5_35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(6.5, 0, 35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_13_35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(13, 0, 35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_19_5_35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(19.5, 0, 35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_26_35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(26, 0, 35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_32_5_35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(32.5, 0, 35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_39_35_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(39, 0, 35.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M39_M22_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(-39, 0, -22.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M39_M16_25" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(-39, 0, -16.25)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M39_M9_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(-39, 0, -9.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M39_M3_25" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(-39, 0, -3.25)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M39_3_25" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(-39, 0, 3.25)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M39_9_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(-39, 0, 9.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M39_16_25" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(-39, 0, 16.25)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M39_22_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(-39, 0, 22.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M32_5_M22_75" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(-32.5, 0, -22.75)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M32_5_M16_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(-32.5, 0, -16.25)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M32_5_M9_75" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(-32.5, 0, -9.75)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M32_5_M3_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(-32.5, 0, -3.25)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M32_5_3_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(-32.5, 0, 3.25)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M32_5_9_75" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(-32.5, 0, 9.75)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M32_5_16_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(-32.5, 0, 16.25)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_M32_5_22_75" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(-32.5, 0, 22.75)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_32_5_M22_75" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(32.5, 0, -22.75)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_32_5_M16_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(32.5, 0, -16.25)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_32_5_M9_75" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(32.5, 0, -9.75)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_32_5_M3_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(32.5, 0, -3.25)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_32_5_3_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(32.5, 0, 3.25)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_32_5_9_75" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(32.5, 0, 9.75)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_32_5_16_25" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(32.5, 0, 16.25)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_32_5_22_75" parent="OuterGround" instance=ExtResource("2")]
+position = Vector3(32.5, 0, 22.75)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_39_M22_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(39, 0, -22.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_39_M16_25" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(39, 0, -16.25)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_39_M9_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(39, 0, -9.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_39_M3_25" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(39, 0, -3.25)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_39_3_25" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(39, 0, 3.25)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_39_9_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(39, 0, 9.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_39_16_25" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(39, 0, 16.25)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="Ground_39_22_75" parent="OuterGround" instance=ExtResource("1")]
+position = Vector3(39, 0, 22.75)
+scale = Vector3(6.5, 6.5, 6.5)
+
+[node name="OuterHouses" type="Node3D" parent="."]
+
+[node name="NorthHouse_1" parent="OuterHouses" instance=ExtResource("4")]
+position = Vector3(-35, 0.13, -35.5)
+scale = Vector3(4.8, 4.8, 4.8)
+
+[node name="SouthHouse_1" parent="OuterHouses" instance=ExtResource("4")]
+position = Vector3(-35, 0.13, 35.5)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(4.8, 4.8, 4.8)
+
+[node name="NorthHouse_2" parent="OuterHouses" instance=ExtResource("5")]
+position = Vector3(-25, 0.13, -35.5)
+scale = Vector3(4.95, 4.95, 4.95)
+
+[node name="SouthHouse_2" parent="OuterHouses" instance=ExtResource("5")]
+position = Vector3(-25, 0.13, 35.5)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(5, 5, 5)
+
+[node name="NorthHouse_3" parent="OuterHouses" instance=ExtResource("6")]
+position = Vector3(-15, 0.13, -35.5)
+scale = Vector3(5.1, 5.1, 5.1)
+
+[node name="SouthHouse_3" parent="OuterHouses" instance=ExtResource("9")]
+position = Vector3(-15, 0.13, 35.5)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(4.8, 4.8, 4.8)
+
+[node name="NorthHouse_4" parent="OuterHouses" instance=ExtResource("7")]
+position = Vector3(-5, 0.13, -35.5)
+scale = Vector3(4.8, 4.8, 4.8)
+
+[node name="SouthHouse_4" parent="OuterHouses" instance=ExtResource("8")]
+position = Vector3(-5, 0.13, 35.5)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(5, 5, 5)
+
+[node name="NorthHouse_5" parent="OuterHouses" instance=ExtResource("8")]
+position = Vector3(5, 0.13, -35.5)
+scale = Vector3(4.95, 4.95, 4.95)
+
+[node name="SouthHouse_5" parent="OuterHouses" instance=ExtResource("7")]
+position = Vector3(5, 0.13, 35.5)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(4.8, 4.8, 4.8)
+
+[node name="NorthHouse_6" parent="OuterHouses" instance=ExtResource("9")]
+position = Vector3(15, 0.13, -35.5)
+scale = Vector3(5.1, 5.1, 5.1)
+
+[node name="SouthHouse_6" parent="OuterHouses" instance=ExtResource("6")]
+position = Vector3(15, 0.13, 35.5)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(5, 5, 5)
+
+[node name="NorthHouse_7" parent="OuterHouses" instance=ExtResource("5")]
+position = Vector3(25, 0.13, -35.5)
+scale = Vector3(4.8, 4.8, 4.8)
+
+[node name="SouthHouse_7" parent="OuterHouses" instance=ExtResource("5")]
+position = Vector3(25, 0.13, 35.5)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(4.8, 4.8, 4.8)
+
+[node name="NorthHouse_8" parent="OuterHouses" instance=ExtResource("4")]
+position = Vector3(35, 0.13, -35.5)
+scale = Vector3(4.95, 4.95, 4.95)
+
+[node name="SouthHouse_8" parent="OuterHouses" instance=ExtResource("4")]
+position = Vector3(35, 0.13, 35.5)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(5, 5, 5)
+
+[node name="WestHouse_1" parent="OuterHouses" instance=ExtResource("8")]
+position = Vector3(-39, 0.13, -20)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(4.8, 4.8, 4.8)
+
+[node name="EastHouse_1" parent="OuterHouses" instance=ExtResource("4")]
+position = Vector3(39, 0.13, -20)
+rotation_degrees = Vector3(0, -90, 0)
+scale = Vector3(4.8, 4.8, 4.8)
+
+[node name="WestHouse_2" parent="OuterHouses" instance=ExtResource("7")]
+position = Vector3(-39, 0.13, -10)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(4.8, 4.8, 4.8)
+
+[node name="EastHouse_2" parent="OuterHouses" instance=ExtResource("6")]
+position = Vector3(39, 0.13, -10)
+rotation_degrees = Vector3(0, -90, 0)
+scale = Vector3(4.8, 4.8, 4.8)
+
+[node name="WestHouse_3" parent="OuterHouses" instance=ExtResource("9")]
+position = Vector3(-39, 0.13, 0)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(4.8, 4.8, 4.8)
+
+[node name="EastHouse_3" parent="OuterHouses" instance=ExtResource("9")]
+position = Vector3(39, 0.13, 0)
+rotation_degrees = Vector3(0, -90, 0)
+scale = Vector3(4.8, 4.8, 4.8)
+
+[node name="WestHouse_4" parent="OuterHouses" instance=ExtResource("6")]
+position = Vector3(-39, 0.13, 10)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(4.8, 4.8, 4.8)
+
+[node name="EastHouse_4" parent="OuterHouses" instance=ExtResource("7")]
+position = Vector3(39, 0.13, 10)
+rotation_degrees = Vector3(0, -90, 0)
+scale = Vector3(4.8, 4.8, 4.8)
+
+[node name="WestHouse_5" parent="OuterHouses" instance=ExtResource("4")]
+position = Vector3(-39, 0.13, 20)
+rotation_degrees = Vector3(0, 90, 0)
+scale = Vector3(4.8, 4.8, 4.8)
+
+[node name="EastHouse_5" parent="OuterHouses" instance=ExtResource("8")]
+position = Vector3(39, 0.13, 20)
+rotation_degrees = Vector3(0, -90, 0)
+scale = Vector3(4.8, 4.8, 4.8)
+
+[node name="OuterTrees" type="Node3D" parent="."]
+
+[node name="NorthTree_M30" parent="OuterTrees" instance=ExtResource("10")]
+position = Vector3(-30, 0.13, -33)
+scale = Vector3(6, 6, 6)
+
+[node name="SouthTree_M30" parent="OuterTrees" instance=ExtResource("10")]
+position = Vector3(-30, 0.13, 33)
+scale = Vector3(6, 6, 6)
+
+[node name="NorthTree_M10" parent="OuterTrees" instance=ExtResource("10")]
+position = Vector3(-10, 0.13, -33)
+scale = Vector3(6, 6, 6)
+
+[node name="SouthTree_M10" parent="OuterTrees" instance=ExtResource("10")]
+position = Vector3(-10, 0.13, 33)
+scale = Vector3(6, 6, 6)
+
+[node name="NorthTree_10" parent="OuterTrees" instance=ExtResource("10")]
+position = Vector3(10, 0.13, -33)
+scale = Vector3(6, 6, 6)
+
+[node name="SouthTree_10" parent="OuterTrees" instance=ExtResource("10")]
+position = Vector3(10, 0.13, 33)
+scale = Vector3(6, 6, 6)
+
+[node name="NorthTree_30" parent="OuterTrees" instance=ExtResource("10")]
+position = Vector3(30, 0.13, -33)
+scale = Vector3(6, 6, 6)
+
+[node name="SouthTree_30" parent="OuterTrees" instance=ExtResource("10")]
+position = Vector3(30, 0.13, 33)
+scale = Vector3(6, 6, 6)
+
+[node name="WestTree_M20" parent="OuterTrees" instance=ExtResource("11")]
+position = Vector3(-37, 0.13, -20)
+scale = Vector3(6, 6, 6)
+
+[node name="WestTree_0" parent="OuterTrees" instance=ExtResource("11")]
+position = Vector3(-37, 0.13, 0)
+scale = Vector3(6, 6, 6)
+
+[node name="WestTree_20" parent="OuterTrees" instance=ExtResource("11")]
+position = Vector3(-37, 0.13, 20)
+scale = Vector3(6, 6, 6)
+
+[node name="EastTree_M20" parent="OuterTrees" instance=ExtResource("11")]
+position = Vector3(37, 0.13, -20)
+scale = Vector3(6, 6, 6)
+
+[node name="EastTree_0" parent="OuterTrees" instance=ExtResource("11")]
+position = Vector3(37, 0.13, 0)
+scale = Vector3(6, 6, 6)
+
+[node name="EastTree_20" parent="OuterTrees" instance=ExtResource("11")]
+position = Vector3(37, 0.13, 20)
+scale = Vector3(6, 6, 6)
+
+[node name="CornerTree_M39_M27" parent="OuterTrees" instance=ExtResource("11")]
+position = Vector3(-39, 0.13, -27)
+scale = Vector3(6, 6, 6)
+
+[node name="CornerTree_M39_27" parent="OuterTrees" instance=ExtResource("11")]
+position = Vector3(-39, 0.13, 27)
+scale = Vector3(6, 6, 6)
+
+[node name="CornerTree_39_M27" parent="OuterTrees" instance=ExtResource("11")]
+position = Vector3(39, 0.13, -27)
+scale = Vector3(6, 6, 6)
+
+[node name="CornerTree_39_27" parent="OuterTrees" instance=ExtResource("11")]
+position = Vector3(39, 0.13, 27)
+scale = Vector3(6, 6, 6)
+
+[node name="FarSkyline" type="Node3D" parent="."]
+
+[node name="NorthSkyline_1" parent="FarSkyline" instance=ExtResource("13")]
+position = Vector3(-24, 0.13, -37.4)
+scale = Vector3(5.7, 5.7, 5.7)
+
+[node name="SouthSkyline_1" parent="FarSkyline" instance=ExtResource("12")]
+position = Vector3(-24, 0.13, 37.4)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(5.7, 5.7, 5.7)
+
+[node name="NorthSkyline_2" parent="FarSkyline" instance=ExtResource("12")]
+position = Vector3(0, 0.13, -37.4)
+scale = Vector3(5.7, 5.7, 5.7)
+
+[node name="SouthSkyline_2" parent="FarSkyline" instance=ExtResource("13")]
+position = Vector3(0, 0.13, 37.4)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(5.7, 5.7, 5.7)
+
+[node name="NorthSkyline_3" parent="FarSkyline" instance=ExtResource("13")]
+position = Vector3(24, 0.13, -37.4)
+scale = Vector3(5.7, 5.7, 5.7)
+
+[node name="SouthSkyline_3" parent="FarSkyline" instance=ExtResource("12")]
+position = Vector3(24, 0.13, 37.4)
+rotation_degrees = Vector3(0, 180, 0)
+scale = Vector3(5.7, 5.7, 5.7)

@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://qoi50tpt4e0g"]
+
+[ext_resource type="Texture2D" uid="uid://dy1ndggk73ce6" path="res://assets/sky/fair_weather_clouds.png" id="1_clouds"]
+
+[sub_resource type="ProceduralSkyMaterial" id="DaySkyMaterial"]
+sky_top_color = Color(0.54, 0.7, 0.83, 1)
+sky_horizon_color = Color(0.98, 0.9, 0.72, 1)
+sky_curve = 0.22
+sky_cover = ExtResource("1_clouds")
+sky_cover_modulate = Color(0.45, 0.35, 0.26, 0.85)
+ground_bottom_color = Color(0.83, 0.78, 0.64, 1)
+ground_horizon_color = Color(0.98, 0.9, 0.72, 1)
+ground_curve = 0.08
+sun_angle_max = 20.0
+
+[sub_resource type="Sky" id="DaySky"]
+sky_material = SubResource("DaySkyMaterial")
+
+[sub_resource type="Environment" id="DayEnvironment"]
+background_mode = 2
+sky = SubResource("DaySky")
+ambient_light_source = 3
+ambient_light_color = Color(1, 0.91, 0.74, 1)
+ambient_light_sky_contribution = 0.4
+ambient_light_energy = 0.65
+reflected_light_source = 2
+glow_enabled = true
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.98, 0.89, 0.72, 1)
+fog_density = 0.9
+fog_aerial_perspective = 0.2
+fog_sky_affect = 0.2
+fog_depth_curve = 1.2
+fog_depth_begin = 22.0
+fog_depth_end = 62.0
+
+[node name="Daylight" type="Node3D" unique_id=894010118]
+
+[node name="SkyAndAmbientLight" type="WorldEnvironment" parent="." unique_id=1490215627]
+environment = SubResource("DayEnvironment")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1936322166]
+transform = Transform3D(0.8660254, 0.40957603, -0.28678823, 0, 0.57357645, 0.81915206, 0.5, -0.7094065, 0.49673176, 0, 0, 0)
+visible = false
+light_color = Color(1, 0.86, 0.65, 1)
+light_energy = 1.605
+light_angular_distance = 1.0
+shadow_enabled = true
+directional_shadow_max_distance = 40.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1167196825]
+transform = Transform3D(0.6624039, 0.34350827, -0.6657501, -0.16931963, 0.93433064, 0.31361958, 0.72976166, -0.09501827, 0.67706686, -1.3123529, 4.6327534, 6.5005074)
+light_color = Color(0.8666667, 0.88235295, 0.8627451, 1)
+light_energy = 0.2
+light_indirect_energy = 0.56
+shadow_enabled = true
