@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bp3knlp2a65oy"]
 
 [ext_resource type="PackedScene" path="res://scenes/paved_tile.tscn" id="1"]
-[ext_resource type="PackedScene" uid="uid://cdpk4aaclm3kx" path="res://models/kenney_city-kit-roads/Models/GLB format/road-straight.glb" id="2"]
-[ext_resource type="PackedScene" uid="uid://0imec4sbbyxk" path="res://models/kenney_city-kit-roads/Models/GLB format/road-crossing.glb" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/textured_road_straight.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/textured_road_crossing.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://buaqxrn3p4okq" path="res://models/kenney_city-kit-roads/Models/GLB format/light-square.glb" id="4"]
 [ext_resource type="PackedScene" uid="uid://dr841m0torga5" path="res://models/kenney_city-kit-suburban_20/Models/GLB format/tree-large.glb" id="5"]
 [ext_resource type="PackedScene" uid="uid://qqxvk3if2ge2" path="res://models/kenney_city-kit-suburban_20/Models/GLB format/tree-small.glb" id="6"]

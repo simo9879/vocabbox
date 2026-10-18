@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://models/kenney_city-kit-roads/Models/GLB format/road-crossing.glb" id="1_road"]
+[ext_resource type="Material" path="res://materials/road_surface.tres" id="2_surface"]
+
+[node name="TexturedRoadCrossing" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_road")]
+
+[node name="road-crossing" parent="Model" index="0"]
+material_override = ExtResource("2_surface")

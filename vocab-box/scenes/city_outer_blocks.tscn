@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3]
 
 [ext_resource type="PackedScene" path="res://scenes/paved_low_tile.tscn" id="1"]
-[ext_resource type="PackedScene" path="res://models/kenney_city-kit-roads/Models/GLB format/road-straight.glb" id="2"]
-[ext_resource type="PackedScene" path="res://models/kenney_city-kit-roads/Models/GLB format/road-crossroad.glb" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/textured_road_straight.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/textured_road_crossroad.tscn" id="3"]
 [ext_resource type="PackedScene" path="res://models/kenney_city-kit-suburban_20/Models/GLB format/building-type-b.glb" id="4"]
 [ext_resource type="PackedScene" path="res://models/kenney_city-kit-suburban_20/Models/GLB format/building-type-d.glb" id="5"]
 [ext_resource type="PackedScene" path="res://models/kenney_city-kit-suburban_20/Models/GLB format/building-type-f.glb" id="6"]
