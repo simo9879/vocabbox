@@ -9,8 +9,8 @@ func fail(message: String) -> void:
 func _initialize() -> void:
 	call_deferred("run")
 func press_button(prefix: String) -> void:
-	for node in game.panel.stack.find_children("*", "Button", true, false):
-		if node is Button and node.text.begins_with(prefix):
+	for node in game.find_children("*", "Button", true, false):
+		if node is Button and node.is_visible_in_tree() and node.text.begins_with(prefix):
 			node.pressed.emit()
 			return
 	fail("Missing button: "+prefix)
@@ -113,7 +113,7 @@ func run() -> void:
 	game.camera.pitch=-0.4
 	game.pause_menu()
 	press_button("Settings")
-	for node in game.panel.stack.get_children():
+	for node in game.settings_screen.find_children("*", "HSlider", true, false):
 		if node is HSlider: node.value=0.5
 	press_button("Back")
 	press_button("Resume")

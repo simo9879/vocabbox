@@ -17,3 +17,10 @@
 
 ## Quarantined legacy imports
 The unused town model archive and its textures are kept under ignored `.local/archive/source-packages/`; their provenance and redistribution rights have not been established. The old root scene and movement scripts are under `.local/archive/legacy-prototype/`. Do not redistribute the unreviewed town assets until their provenance is established.
+
+## Blackboard menus
+
+- `vocab-box/assets/empty-blackboard.jpg` was supplied by the project owner and explicitly selected for the start and pause menus. On 18 October 2026, the owner identified **Magnific** as the source and confirmed that the image is free. This records the owner's confirmation; no specific license name was supplied. No further source search was performed, at the owner's request.
+- `vocab-box/assets/fonts/CabinSketch-Regular.ttf` is **Cabin Sketch**, copyright 2011 The Cabin Project Authors (Pablo Impallari contact in the license), obtained unchanged from the [Google Fonts repository](https://github.com/google/fonts/tree/main/ofl/cabinsketch). The included `CabinSketch-OFL.txt` is the SIL Open Font License 1.1 and permits bundling and redistribution with software when its copyright notice and license are retained. The menus use this font through `scenes/ui/chalk_theme.tres`.
+
+- `vocab-box/assets/ui/chalk_track.svg`, `chalk_fill.svg`, `chalk_handle.svg`, and `chalk_handle_active.svg` are original vector artwork authored for this project. The settings sliders use these imported textures through the shared chalk theme; no runtime drawing code is used.

@@ -132,3 +132,23 @@ Speech is temporary eSpeak NG synthesis, not professional narration. Automated p
 
 - `materials/road_surface.tres` uses the owner-supplied CC0 Asphalt 001 image directly on the dark top faces of the existing Kenney straight, crossing, and crossroad meshes. The first generated asphalt image was too light because the shader retained much of the Kenney atlas brightness; that image was removed. The shader samples the Kenney color atlas for its painted markings, raised edges, and side faces. The asphalt image is projected in world coordinates so its scale continues across road tiles; scene transforms and collision were unchanged.
 - Godot 4.7.2 imported the replacement PNG and loaded the shader and city scene headlessly. A scene check confirmed the new image and darkening parameter on all 47 city road meshes: 42 straight, one crossing, and four crossroads. The full physics-driven city → shop → results → city route passed after the replacement. A rendered color, repeat seam, and frame-rate check remains outstanding.
+
+## Blackboard start and pause menus — 18 October 2026
+
+- Godot 4.7.2 imported the new font, theme, and authored menu scenes successfully. The initial sandboxed editor invocation reported blocked editor settings/socket operations; the approved retry completed cleanly.
+- The existing headless physics-driven full city → shop → results → city route passed, including retry, pause/settings/back/resume, restart and exit confirmation. Save writes for this run were isolated with `XDG_DATA_HOME=/tmp/vocab-ui-data`.
+- A temporary headless scene check loaded both menus at 1280×720 and 1920×1080, checked their content fits inside the available scroll area, and checked initial primary-button focus. Both passed. This checks Control layout calculations, not rendered font or image appearance.
+- No rendered screenshot, manual mouse/keyboard playthrough or frame-rate measurement was performed for this UI change. Review the blackboard image stretch, chalk readability and focus appearance in the editor/game before visual sign-off.
+
+### Centered boards and authored Settings follow-up
+
+- Title, pause, and settings boards now use 10% viewport margins, leaving the world visible around a centered board sized to 80% width and height.
+- Settings now owns three authored HSliders with imported SVG chalk tracks/fills/handles and retains saved Voice/Music/Effects values, 0.05 steps, and Back/Escape navigation.
+- Godot import completed cleanly on the approved retry. The headless full route passed again with the settings check updated to use the authored sliders. All three scenes passed temporary 1280×720 and 1920×1080 content-fit and primary-focus checks. At 720p, title/pause/settings content heights were 466/403/427 px inside 496 px available height.
+- These are headless checks. Rendered review of the centered background and chalk slider appearance remains outstanding.
+
+### Chalk slider track correction
+
+- The owner's rendered Settings screenshot showed visible handles but missing tracks. The texture styleboxes had no vertical content margins, giving them zero minimum height even though their textures are 12 px tall; the earlier content-fit checks did not detect this rendering issue.
+- `scenes/ui/chalk_theme.tres` now sets 6 px top and bottom content margins on both track and fill styles. A targeted Godot headless check confirmed 12 px minimum height and 12 px texture height for the slider, filled area and highlighted filled area.
+- Rendered confirmation of this correction remains pending.

@@ -7,6 +7,9 @@ var world: Node3D
 var player: CharacterBody3D
 var camera: Node3D
 var bird: Node3D
+@onready var title_menu = $Menus/TitleMenu
+@onready var settings_screen = $Menus/SettingsMenu
+@onready var pause_screen = $Menus/PauseMenu
 var panel: PanelContainer
 var help: Button
 var hud: Label
@@ -43,6 +46,10 @@ func _ready() -> void:
 	effects.bus = "Effects"
 	add_child(effects)
 	build_ui()
+	title_menu.action_requested.connect(menu_action)
+	pause_screen.action_requested.connect(menu_action)
+	settings_screen.action_requested.connect(menu_action)
+	settings_screen.volume_changed.connect(settings_volume_changed)
 	mission.changed.connect(func(): idle=0; update_hud())
 	load_world("city")
 	show_title()
@@ -161,22 +168,33 @@ func load_world(where: String, exiting: bool = false) -> void:
 		music.stream=load(path)
 		music.play()
 	update_hud()
-func overlay(next_mode: String, title: String) -> void:
+# Shared input/audio policy for authored menus and the remaining legacy overlays.
+func prepare_overlay(next_mode: String) -> void:
+	settings_screen.hide()
+	title_menu.hide()
+	pause_screen.hide()
+	panel.hide()
 	hud.hide()
 	help.hide()
 	prompt.hide()
 	subtitle.hide()
 	mode=next_mode
-	panel.show()
-	panel.clear()
-	panel.label_text(title,34)
 	player.enabled=false
 	camera.enabled=false
 	bird.talking=next_mode=="dialogue"
 	Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
 	subtitle.text=""
 	voice.stop()
+func overlay(next_mode: String, title: String) -> void:
+	prepare_overlay(next_mode)
+	panel.show()
+	panel.clear()
+	panel.label_text(title,34)
+
 func resume() -> void:
+	settings_screen.hide()
+	title_menu.hide()
+	pause_screen.hide()
 	hud.show()
 	help.show()
 	prompt.show()
@@ -201,13 +219,30 @@ func say(line: String) -> void:
 func replay_button(line: String) -> void:
 	panel.button("▶  Listen again",func(): say(line))
 func show_title() -> void:
-	overlay("title","VOCAB BOX")
-	panel.label_text("A little adventure in English",26)
-	panel.label_text("SUNNY MARKET\nExplore with Pip. Meet new friends. Let’s buy some bananas!")
-	panel.label_text("Best adventure: "+str(saved.best_stars)+" / 3 stars")
-	panel.button("Play  →",start)
-	panel.button("Settings",func(): settings("title"))
-	panel.button("Quit",func(): get_tree().quit())
+	prepare_overlay("title")
+	title_menu.get_node("%BestStars").text = "Best adventure: " + str(saved.best_stars) + " / 3 stars"
+	title_menu.open()
+
+# Menu scenes emit intent without depending on world, mission or save objects.
+func menu_action(action: String) -> void:
+	match action:
+		"play": start()
+		"resume": resume()
+		"settings": settings(mode)
+		"back":
+			if settings_back == "title": show_title()
+			else: pause_menu()
+		"quit": get_tree().quit()
+		"restart":
+			mission.reset()
+			hinted.clear()
+			pause_screen.hide()
+			travel("supermarket")
+		"title":
+			mission.reset()
+			load_world("city")
+			show_title()
+
 func start() -> void:
 	mission.reset()
 	hinted.clear()
@@ -350,26 +385,19 @@ func results() -> void:
 	panel.button("Replay adventure",start)
 	say(LESSON.lines.done)
 func pause_menu() -> void:
-	overlay("pause","Take a little break")
-	panel.button("Resume",resume)
-	if location=="supermarket": panel.button("Restart mission",func(): mission.reset(); hinted.clear(); panel.hide(); travel("supermarket"))
-	panel.button("Settings",func(): settings("pause"))
-	panel.button("Quit to title",func(): mission.reset(); load_world("city"); show_title())
+	prepare_overlay("pause")
+	pause_screen.get_node("%Restart").visible = location == "supermarket"
+	pause_screen.open()
 func settings(back: String) -> void:
 	settings_back=back
-	overlay("settings","Make yourself comfortable")
-	for bus in ["Voice","Music","Effects"]:
-		panel.label_text(bus)
-		var slider=HSlider.new()
-		slider.min_value=0
-		slider.max_value=1
-		slider.step=0.05
-		slider.value=saved.volumes[bus]
-		slider.custom_minimum_size.y=32
-		panel.stack.add_child(slider)
-		slider.value_changed.connect(func(value): set_volume(value,bus); saved.write_save())
-	panel.label_text("Voiced lines have subtitles. Answers are read only when you press Listen.\nThis adventure uses written choices, not speech recognition.",18)
-	panel.button("Back",func(): show_title() if back=="title" else pause_menu())
+	prepare_overlay("settings")
+	settings_screen.set_volumes(saved.volumes)
+	settings_screen.open()
+
+func settings_volume_changed(value: float, bus: String) -> void:
+	set_volume(value, bus)
+	saved.write_save()
+
 func set_volume(value: float, bus: String) -> void:
 	saved.volumes[bus]=value
 	var index=AudioServer.get_bus_index(bus)
