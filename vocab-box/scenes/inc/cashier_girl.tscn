@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://m7xdro1gug6v"]
+
+[ext_resource type="PackedScene" uid="uid://bm85lm2nnqqe6" path="res://models/market/russian_girl_mid_animated.glb" id="1_hwogq"]
+
+[node name="Sketchfab_Scene" unique_id=786438088 instance=ExtResource("1_hwogq")]
+
+[node name="Skeleton3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/russian-girl_mid_75/GLTF_created_0" parent_id_path=PackedInt32Array(387059035) index="10" unique_id=2104929828]
+bones/9/rotation = Quaternion(0.00094826054, 0.033455618, -0.04431566, 0.99845684)
+bones/12/rotation = Quaternion(1.2079047e-06, 2.7731627e-05, 0.04214253, 0.99911165)
+bones/15/rotation = Quaternion(2.015773e-05, -0.0013448505, -0.0075373044, 0.99997073)
+bones/22/rotation = Quaternion(-0.0024459672, 0.00025104804, 0.036035426, 0.99934757)
+bones/25/rotation = Quaternion(0.5429941, -0.4474691, 0.55658484, 0.44174898)
+bones/26/rotation = Quaternion(-0.105557494, -0.06046675, -0.0036599059, 0.9925664)
+bones/27/rotation = Quaternion(2.0064824e-07, -0.0014925867, -7.66314e-08, 0.9999989)
+bones/28/rotation = Quaternion(0.0055021835, -0.018653095, 0.04054861, 0.99898833)
+bones/30/rotation = Quaternion(0.00078896433, 0.008517729, -0.05932732, 0.998202)
+bones/34/rotation = Quaternion(2.0313905e-06, 0.00021407209, 0.0027043128, 0.9999964)
+bones/40/rotation = Quaternion(3.803105e-06, -0.00059822696, -0.0023795047, 0.999997)
+bones/44/rotation = Quaternion(-0.0012042788, -0.0061091753, 0.9998769, 0.01440382)
+bones/45/rotation = Quaternion(-0.018891005, -2.6677977e-05, 0.027693711, 0.999438)
+bones/46/rotation = Quaternion(0.46990526, 0.02285601, 0.014993291, 0.8822936)
+bones/48/rotation = Quaternion(0.0009985532, -0.015395438, 0.9997787, -0.014303737)
+
+[node name="mixamorig_LeftHandThumb3_4" parent="Sketchfab_model/root/GLTF_SceneRootNode/russian-girl_mid_75/GLTF_created_0/Skeleton3D" index="1" unique_id=167944521]
+transform = Transform3D(0.54707193, 0.73257583, -0.40502477, -0.83428824, 0.5166945, -0.19232851, 0.068378925, 0.4431248, 0.89384764, 0.68789023, -0.01512159, -1.3783556)
+
+[node name="mixamorig_LeftHandIndex3_8" parent="Sketchfab_model/root/GLTF_SceneRootNode/russian-girl_mid_75/GLTF_created_0/Skeleton3D" index="2" unique_id=654568568]
+transform = Transform3D(-0.022825252, 0.99973947, -6.887565e-07, -0.99967784, -0.02282395, -0.01111283, -0.011109837, -0.00025283397, 0.99993795, 0.7664316, -0.0418313, -1.4129039)
+
+[node name="mixamorig_LeftHandMiddle3_12" parent="Sketchfab_model/root/GLTF_SceneRootNode/russian-girl_mid_75/GLTF_created_0/Skeleton3D" index="3" unique_id=1632654303]
+transform = Transform3D(-0.008403564, 0.9999645, -2.3921152e-06, -0.9999265, -0.008403362, -0.008732802, -0.008732405, -7.086528e-05, 0.99996114, 0.7701374, -0.05974651, -1.4139884)
+
+[node name="mixamorig_LeftHandRing3_16" parent="Sketchfab_model/root/GLTF_SceneRootNode/russian-girl_mid_75/GLTF_created_0/Skeleton3D" index="4" unique_id=652401759]
+transform = Transform3D(0.004309195, 0.9999907, 8.9510294e-08, -0.99996525, 0.004308983, -0.0071338704, -0.0071336967, 3.0779094e-05, 0.99997324, 0.7628553, -0.07876429, -1.4142065)
+
+[node name="mixamorig_LeftHandPinky3_20" parent="Sketchfab_model/root/GLTF_SceneRootNode/russian-girl_mid_75/GLTF_created_0/Skeleton3D" index="5" unique_id=641352197]
+transform = Transform3D(0.012574547, 0.9999207, -1.5816227e-08, -0.99989045, 0.012574072, -0.007816762, -0.0078160325, 9.843544e-05, 0.9999685, 0.7433671, -0.094469234, -1.4128231)
+
+[node name="mixamorig_RightHandThumb3_28" parent="Sketchfab_model/root/GLTF_SceneRootNode/russian-girl_mid_75/GLTF_created_0/Skeleton3D" index="6" unique_id=1999697914]
+transform = Transform3D(0.628809, -0.66143036, 0.40879023, 0.7668785, 0.61438847, -0.18553574, -0.12843724, 0.43015918, 0.8935699, -0.6896077, -0.011331034, -1.3762022)
+
+[node name="mixamorig_RightHandIndex3_32" parent="Sketchfab_model/root/GLTF_SceneRootNode/russian-girl_mid_75/GLTF_created_0/Skeleton3D" index="7" unique_id=1999519859]
+transform = Transform3D(-0.013041535, -0.99991506, 4.235896e-06, 0.99940735, -0.013035069, -0.03184555, 0.031842843, -0.0004109847, 0.9994925, -0.7644233, -0.037918054, -1.4119365)
+
+[node name="mixamorig_RightHandMiddle3_36" parent="Sketchfab_model/root/GLTF_SceneRootNode/russian-girl_mid_75/GLTF_created_0/Skeleton3D" index="8" unique_id=1750067941]
+transform = Transform3D(-0.004099194, -0.9999913, 2.9674557e-06, 0.99965894, -0.004097927, -0.025769593, 0.025769325, -0.00010257412, 0.99966764, -0.76924753, -0.057285454, -1.413952)
+
+[node name="mixamorig_RightHandRing3_40" parent="Sketchfab_model/root/GLTF_SceneRootNode/russian-girl_mid_75/GLTF_created_0/Skeleton3D" index="9" unique_id=1648349398]
+transform = Transform3D(0.008547248, -0.9999632, 4.840759e-06, 0.999548, 0.008543521, -0.028799228, 0.028798072, 0.00025108634, 0.9995851, -0.76270133, -0.07527937, -1.4130694)
+
+[node name="mixamorig_RightHandPinky3_44" parent="Sketchfab_model/root/GLTF_SceneRootNode/russian-girl_mid_75/GLTF_created_0/Skeleton3D" index="10" unique_id=1638371475]
+transform = Transform3D(0.01886175, -0.99982184, 3.7132063e-06, 0.99923277, 0.018850476, -0.03432284, 0.034316618, 0.0006511935, 0.99941057, -0.74318564, -0.09078805, -1.4123456)
+
+[node name="mixamorig_LeftToeBase_55" parent="Sketchfab_model/root/GLTF_SceneRootNode/russian-girl_mid_75/GLTF_created_0/Skeleton3D" index="11" unique_id=419530611]
+transform = Transform3D(-0.99918926, -0.008453261, -0.039257016, -0.007286934, 0.99950135, -0.029756874, 0.039490532, -0.029448181, -0.9987856, 0.119649515, 0.09085818, -0.013022818)
+
+[node name="mixamorig_RightToeBase_60" parent="Sketchfab_model/root/GLTF_SceneRootNode/russian-girl_mid_75/GLTF_created_0/Skeleton3D" index="12" unique_id=1901995592]
+transform = Transform3D(-0.9992004, 0.008451872, 0.038816758, 0.0073401257, 0.9995004, -0.028689772, -0.039043225, -0.028387755, -0.9988341, -0.11965237, 0.084476754, -0.012941398)

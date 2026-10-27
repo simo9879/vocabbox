@@ -1,23 +1,39 @@
 [gd_scene format=3 uid="uid://dhbvnjxaa7t2t"]
 
 [ext_resource type="Script" uid="uid://bsfwym6jn8ax6" path="res://scripts/main.gd" id="1"]
-
 [ext_resource type="PackedScene" path="res://scenes/ui/title_menu.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="3"]
-
 [ext_resource type="PackedScene" path="res://scenes/ui/settings_menu.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://bbard0g48ujir" path="res://scenes/ui/notebook_hud.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/ui/speech_prompt.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pip_paper_line.tscn" id="7"]
 
 [node name="Main" type="Node" unique_id=143976089]
 script = ExtResource("1")
 
-[node name="Menus" type="CanvasLayer" parent="."]
-layer = 1
+[node name="NotebookUI" type="CanvasLayer" parent="." unique_id=326111634]
 
-[node name="TitleMenu" parent="Menus" instance=ExtResource("2")]
+[node name="NotebookHUD" parent="NotebookUI" unique_id=2036064176 instance=ExtResource("5")]
+
+[node name="SpeechUI" type="CanvasLayer" parent="." unique_id=880759688]
+layer = 2
+
+[node name="SpeechPrompt" parent="SpeechUI" unique_id=1549004938 instance=ExtResource("6")]
+layout_mode = 3
+
+[node name="PaperUI" type="CanvasLayer" parent="." unique_id=1548941012]
+layer = 3
+
+[node name="PipPaperLine" parent="PaperUI" unique_id=1867243104 instance=ExtResource("7")]
 visible = false
 
-[node name="PauseMenu" parent="Menus" instance=ExtResource("3")]
+[node name="Menus" type="CanvasLayer" parent="." unique_id=1085745531]
+
+[node name="TitleMenu" parent="Menus" unique_id=1467477396 instance=ExtResource("2")]
 visible = false
 
-[node name="SettingsMenu" parent="Menus" instance=ExtResource("4")]
+[node name="PauseMenu" parent="Menus" unique_id=491340915 instance=ExtResource("3")]
+visible = false
+
+[node name="SettingsMenu" parent="Menus" unique_id=752125850 instance=ExtResource("4")]
 visible = false

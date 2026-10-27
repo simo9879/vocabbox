@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bxq726t8wugjb"]
+
+[ext_resource type="PackedScene" uid="uid://go7r13wysx2b" path="res://models/market/shelf-boxes.glb" id="1_ccumn"]
+
+[sub_resource type="BoxShape3D" id="ShelfCollision"]
+size = Vector3(0.8, 0.8, 0.7)
+
+[node name="shelf-boxes2" unique_id=1623708453 instance=ExtResource("1_ccumn")]
+
+[node name="shelf-boxes" parent="." index="0" unique_id=979616867]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="shelf-boxes"]
+position = Vector3(0, 0.4, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="shelf-boxes/StaticBody3D"]
+shape = SubResource("ShelfCollision")

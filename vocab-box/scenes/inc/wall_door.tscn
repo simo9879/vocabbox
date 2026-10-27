@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://4qv4e2ljcq5d"]
+
+[ext_resource type="PackedScene" uid="uid://d0mube133tixs" path="res://models/market/wall-door-rotate.glb" id="1_un2vv"]
+
+[node name="wall-door-rotate2" unique_id=588486884 instance=ExtResource("1_un2vv")]
+
+[node name="door-left" parent="wall-door-rotate" parent_id_path=PackedInt32Array(1834393296) index="1" unique_id=627760562]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.4, 7.6497886e-10, 0.1)
+
+[node name="door-right" parent="wall-door-rotate" parent_id_path=PackedInt32Array(1834393296) index="2" unique_id=971699746]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.4, 7.6497886e-10, 0.1)

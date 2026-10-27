@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c4h6e3j5vltmu"]
+
+[ext_resource type="PackedScene" uid="uid://bn6wfmrglbaq1" path="res://models/market/cash-register.glb" id="1_mtrg3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mtrg3"]
+size = Vector3(0.85, 0.5949, 0.85)
+
+[node name="cash-register2" unique_id=969272296 instance=ExtResource("1_mtrg3")]
+
+[node name="cash-register" parent="." index="0" unique_id=1731193938]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="cash-register" index="0" unique_id=1991021085]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025000006, 0.29745, 0.025000006)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cash-register/StaticBody3D" index="0" unique_id=576829831]
+shape = SubResource("BoxShape3D_mtrg3")

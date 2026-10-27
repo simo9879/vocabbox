@@ -8,6 +8,9 @@ builds/
 **/__pycache__/
 *.py[cod]
 *.tmp
+.env
+.env.*
+!.env.example
 
 # Blender automatic backup files
 *.blend1

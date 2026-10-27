@@ -105,7 +105,7 @@ custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Voiced lines have subtitles. Answers are read only when you press Listen.
-This adventure uses written choices, not speech recognition."
+Choose a written answer, or hold E to speak when the conversation offers it."
 horizontal_alignment = 1
 autowrap_mode = 3
 

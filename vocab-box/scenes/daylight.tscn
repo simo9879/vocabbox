@@ -52,6 +52,7 @@ directional_shadow_max_distance = 40.0
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1167196825]
 transform = Transform3D(0.6624039, 0.34350827, -0.6657501, -0.16931963, 0.93433064, 0.31361958, 0.72976166, -0.09501827, 0.67706686, -1.3123529, 4.6327534, 6.5005074)
 light_color = Color(0.8666667, 0.88235295, 0.8627451, 1)
-light_energy = 0.2
+light_energy = 0.463
 light_indirect_energy = 0.56
-shadow_enabled = true
+shadow_opacity = 0.74
+shadow_blur = 0.0

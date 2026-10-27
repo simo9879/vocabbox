@@ -1,0 +1,468 @@
+[gd_scene format=3 uid="uid://d3wxufmuv1vdp"]
+
+[ext_resource type="Texture2D" uid="uid://qpd1xocp4s2f" path="res://materials/floor.jpg" id="1_fn8sg"]
+[ext_resource type="PackedScene" path="res://scenes/market_ceiling_fixture.tscn" id="2_fixture"]
+[ext_resource type="PackedScene" uid="uid://c4h6e3j5vltmu" path="res://scenes/inc/cash_register.tscn" id="3_etlds"]
+[ext_resource type="PackedScene" uid="uid://dh1qi5a8h6rlr" path="res://scenes/inc/market_wall.tscn" id="4_ff4d0"]
+[ext_resource type="PackedScene" uid="uid://bxq726t8wugjb" path="res://scenes/inc/shelf_boxes.tscn" id="5_tb55b"]
+[ext_resource type="PackedScene" uid="uid://l4wriy3yqown" path="res://scenes/inc/freezers_standing.tscn" id="6_mws8x"]
+[ext_resource type="PackedScene" uid="uid://bpmqgr38wa00d" path="res://scenes/inc/shelf_bags.tscn" id="7_kodnj"]
+[ext_resource type="PackedScene" uid="uid://crae8ckl7cyy" path="res://scenes/inc/shopping_basket.tscn" id="8_gisa2"]
+[ext_resource type="PackedScene" uid="uid://bw0dt8akoyhdg" path="res://scenes/inc/table.tscn" id="10_74eqt"]
+[ext_resource type="PackedScene" path="res://scenes/inc/market_entrance.tscn" id="12_door"]
+[ext_resource type="PackedScene" path="res://scenes/inc/market_worker.tscn" id="13_worker"]
+[ext_resource type="PackedScene" uid="uid://bitltveclea6h" path="res://models/market/npc_2_restored.glb" id="14_customer"]
+[ext_resource type="PackedScene" uid="uid://kru1rude3aki" path="res://scenes/inc/market_cashier.tscn" id="15_cashier"]
+[ext_resource type="Script" uid="uid://dmo5kknecmn2a" path="res://scripts/market_interactable.gd" id="16_interaction"]
+[ext_resource type="Script" uid="uid://dieb2q01v8471" path="res://scripts/market_talker_pose.gd" id="17_talker"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tb55b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bj68k"]
+albedo_texture = ExtResource("1_fn8sg")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="CeilingMaterial"]
+albedo_color = Color(0.96, 0.97, 0.98, 1)
+roughness = 0.9
+emission_enabled = true
+emission = Color(0.96, 0.97, 0.98, 1)
+emission_energy_multiplier = 0.45
+
+[sub_resource type="BoxMesh" id="CeilingMesh"]
+material = SubResource("CeilingMaterial")
+size = Vector3(60, 0.2, 60)
+
+[sub_resource type="CapsuleShape3D" id="StandingCharacterCollision"]
+radius = 0.29
+height = 1.7
+
+[sub_resource type="CapsuleShape3D" id="SeatedCharacterCollision"]
+radius = 0.38
+height = 1.2
+
+[sub_resource type="StandardMaterial3D" id="ProduceSignMaterial"]
+albedo_color = Color(0.08, 0.28, 0.31, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="ExitSignMesh"]
+material = SubResource("ProduceSignMaterial")
+size = Vector3(1.6, 0.5, 0.08)
+
+[sub_resource type="BoxMesh" id="ProduceSignMesh"]
+material = SubResource("ProduceSignMaterial")
+size = Vector3(2.7, 0.65, 0.08)
+
+[sub_resource type="Environment" id="MarketEnvironment"]
+background_mode = 1
+background_color = Color(0.17, 0.2, 0.23, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.88, 0.93, 1, 1)
+ambient_light_energy = 0.28
+glow_enabled = true
+
+[node name="NewMarket" type="Node3D" unique_id=1241295429]
+
+[node name="MarketGeometry" type="Node3D" parent="." unique_id=187515467]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="walls" type="Node3D" parent="MarketGeometry" unique_id=1940819379]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.62711, 0)
+
+[node name="wall 1" type="CSGBox3D" parent="MarketGeometry/walls" unique_id=830329703]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.1918259, -30.150166)
+material_override = SubResource("StandardMaterial3D_tb55b")
+use_collision = true
+size = Vector3(60, 25.768555, 1)
+
+[node name="wall 2" type="CSGBox3D" parent="MarketGeometry/walls" unique_id=399792431]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -30, -3.192, 0)
+material_override = SubResource("StandardMaterial3D_tb55b")
+use_collision = true
+size = Vector3(60, 25.768555, 1)
+
+[node name="wall 3" type="CSGBox3D" parent="MarketGeometry/walls" unique_id=1665998658]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.192, 30)
+material_override = SubResource("StandardMaterial3D_tb55b")
+use_collision = true
+size = Vector3(60, 25.768555, 1)
+
+[node name="EastWallNorth" type="CSGBox3D" parent="MarketGeometry/walls" unique_id=1807203418]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 30, -3.192, -17.5)
+material_override = SubResource("StandardMaterial3D_tb55b")
+use_collision = true
+size = Vector3(25, 25.768555, 1)
+
+[node name="EastWallSouth" type="CSGBox3D" parent="MarketGeometry/walls" unique_id=1916960003]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 30, -3.192, 17.5)
+material_override = SubResource("StandardMaterial3D_tb55b")
+use_collision = true
+size = Vector3(25, 25.768555, 1)
+
+[node name="EastWallLintel" type="CSGBox3D" parent="MarketGeometry/walls" unique_id=1292733639]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 30, 2.283, 0)
+material_override = SubResource("StandardMaterial3D_tb55b")
+use_collision = true
+size = Vector3(10, 14.82, 1)
+
+[node name="EntranceFrame" parent="MarketGeometry" unique_id=483007252 instance=ExtResource("12_door")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 29.5, 0.5, 0)
+
+[node name="floor" type="CSGBox3D" parent="MarketGeometry" unique_id=168308521]
+material_overlay = SubResource("StandardMaterial3D_bj68k")
+use_collision = true
+size = Vector3(60, 1, 60)
+
+[node name="Ceiling" type="MeshInstance3D" parent="MarketGeometry" unique_id=258064835]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25.22, 0)
+mesh = SubResource("CeilingMesh")
+
+[node name="CeilingLights" type="Node3D" parent="MarketGeometry" unique_id=296628442]
+
+[node name="RowNorth" type="Node3D" parent="MarketGeometry/CeilingLights" unique_id=1372134967]
+
+[node name="FixtureNW" parent="MarketGeometry/CeilingLights/RowNorth" unique_id=1663408777 instance=ExtResource("2_fixture")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 25.09, -21)
+
+[node name="FixtureNMidW" parent="MarketGeometry/CeilingLights/RowNorth" unique_id=1340652761 instance=ExtResource("2_fixture")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 25.09, -21)
+
+[node name="FixtureNMidE" parent="MarketGeometry/CeilingLights/RowNorth" unique_id=806889976 instance=ExtResource("2_fixture")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 25.09, -21)
+
+[node name="FixtureNE" parent="MarketGeometry/CeilingLights/RowNorth" unique_id=542294150 instance=ExtResource("2_fixture")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 25.09, -21)
+
+[node name="RowMiddleNorth" type="Node3D" parent="MarketGeometry/CeilingLights" unique_id=935223029]
+
+[node name="FixtureMNW" parent="MarketGeometry/CeilingLights/RowMiddleNorth" unique_id=677111381 instance=ExtResource("2_fixture")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 25.09, -7)
+
+[node name="FixtureMNMidW" parent="MarketGeometry/CeilingLights/RowMiddleNorth" unique_id=1749361988 instance=ExtResource("2_fixture")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 25.09, -7)
+
+[node name="FixtureMNMidE" parent="MarketGeometry/CeilingLights/RowMiddleNorth" unique_id=115798855 instance=ExtResource("2_fixture")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 25.09, -7)
+
+[node name="FixtureMNE" parent="MarketGeometry/CeilingLights/RowMiddleNorth" unique_id=898060489 instance=ExtResource("2_fixture")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 25.09, -7)
+
+[node name="RowMiddleSouth" type="Node3D" parent="MarketGeometry/CeilingLights" unique_id=1181282332]
+
+[node name="FixtureMSW" parent="MarketGeometry/CeilingLights/RowMiddleSouth" unique_id=1239899041 instance=ExtResource("2_fixture")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 25.09, 7)
+
+[node name="FixtureMSMidW" parent="MarketGeometry/CeilingLights/RowMiddleSouth" unique_id=304897394 instance=ExtResource("2_fixture")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 25.09, 7)
+
+[node name="FixtureMSMidE" parent="MarketGeometry/CeilingLights/RowMiddleSouth" unique_id=1089842267 instance=ExtResource("2_fixture")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 25.09, 7)
+
+[node name="FixtureMSE" parent="MarketGeometry/CeilingLights/RowMiddleSouth" unique_id=1325008114 instance=ExtResource("2_fixture")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 25.09, 7)
+
+[node name="RowSouth" type="Node3D" parent="MarketGeometry/CeilingLights" unique_id=419249724]
+
+[node name="FixtureSW" parent="MarketGeometry/CeilingLights/RowSouth" unique_id=1908116705 instance=ExtResource("2_fixture")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 25.09, 21)
+
+[node name="FixtureSMidW" parent="MarketGeometry/CeilingLights/RowSouth" unique_id=68254138 instance=ExtResource("2_fixture")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 25.09, 21)
+
+[node name="FixtureSMidE" parent="MarketGeometry/CeilingLights/RowSouth" unique_id=1454343234 instance=ExtResource("2_fixture")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 25.09, 21)
+
+[node name="FixtureSE" parent="MarketGeometry/CeilingLights/RowSouth" unique_id=774185431 instance=ExtResource("2_fixture")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 25.09, 21)
+
+[node name="cash-register" parent="MarketGeometry" unique_id=969272296 instance=ExtResource("3_etlds")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.254017, 0.5, -19.023071)
+
+[node name="Blue walls" type="Node3D" parent="MarketGeometry" unique_id=1147727624]
+
+[node name="Side wall" type="Node3D" parent="MarketGeometry/Blue walls" unique_id=1255198588]
+
+[node name="wall2" parent="MarketGeometry/Blue walls/Side wall" unique_id=1395556622 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.218185, 7.3389015, 28.988726)
+
+[node name="wall3" parent="MarketGeometry/Blue walls/Side wall" unique_id=1008453997 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2061, 7.3389015, 28.988726)
+
+[node name="wall4" parent="MarketGeometry/Blue walls/Side wall" unique_id=1214321883 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3057404, 7.3389015, 28.988726)
+
+[node name="wall5" parent="MarketGeometry/Blue walls/Side wall" unique_id=1258782871 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5945444, 7.3389015, 28.988726)
+
+[node name="wall6" parent="MarketGeometry/Blue walls/Side wall" unique_id=886453069 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6625805, 7.3389015, 28.988726)
+
+[node name="wall7" parent="MarketGeometry/Blue walls/Side wall" unique_id=1146690486 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.483686, 7.3389015, 28.988726)
+
+[node name="Side wall2" type="Node3D" parent="MarketGeometry/Blue walls" unique_id=31475992]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="wall2" parent="MarketGeometry/Blue walls/Side wall2" unique_id=702448174 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.218185, 7.3389015, 28.988726)
+
+[node name="wall3" parent="MarketGeometry/Blue walls/Side wall2" unique_id=975994529 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2061, 7.3389015, 28.988726)
+
+[node name="wall4" parent="MarketGeometry/Blue walls/Side wall2" unique_id=842219203 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3057404, 7.3389015, 28.988726)
+
+[node name="wall5" parent="MarketGeometry/Blue walls/Side wall2" unique_id=1043085442 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5945444, 7.3389015, 28.988726)
+
+[node name="wall6" parent="MarketGeometry/Blue walls/Side wall2" unique_id=1500060153 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6625805, 7.3389015, 28.988726)
+
+[node name="wall7" parent="MarketGeometry/Blue walls/Side wall2" unique_id=1637039899 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.483686, 7.3389015, 28.988726)
+
+[node name="Side wall3" type="Node3D" parent="MarketGeometry/Blue walls" unique_id=646746371]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.87805176, 0, 0)
+
+[node name="wall2" parent="MarketGeometry/Blue walls/Side wall3" unique_id=1561664025 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.218185, 7.3389015, 28.988726)
+
+[node name="wall3" parent="MarketGeometry/Blue walls/Side wall3" unique_id=1284376804 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2061, 7.3389015, 28.988726)
+
+[node name="wall4" parent="MarketGeometry/Blue walls/Side wall3" unique_id=60900309 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3057404, 7.3389015, 28.988726)
+
+[node name="wall5" parent="MarketGeometry/Blue walls/Side wall3" unique_id=2058036573 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5945444, 7.3389015, 28.988726)
+
+[node name="wall6" parent="MarketGeometry/Blue walls/Side wall3" unique_id=224875677 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.475599, 7.3389015, 28.988726)
+
+[node name="wall7" parent="MarketGeometry/Blue walls/Side wall3" unique_id=1849644782 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.483686, 7.3389015, 28.988726)
+
+[node name="EastTrim" type="Node3D" parent="MarketGeometry/Blue walls" unique_id=1415986291]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)
+
+[node name="NorthOuter" parent="MarketGeometry/Blue walls/EastTrim" unique_id=60937203 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.218185, 7.3389015, 28.988726)
+
+[node name="NorthInner" parent="MarketGeometry/Blue walls/EastTrim" unique_id=1126535789 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2061, 7.3389015, 28.988726)
+
+[node name="NorthDoorEdge" parent="MarketGeometry/Blue walls/EastTrim" unique_id=1016670081 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 7.3389015, 28.988726)
+
+[node name="SouthDoorEdge" parent="MarketGeometry/Blue walls/EastTrim" unique_id=976807990 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 7.3389015, 28.988726)
+
+[node name="SouthInner" parent="MarketGeometry/Blue walls/EastTrim" unique_id=1132291079 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6625805, 7.3389015, 28.988726)
+
+[node name="SouthOuter" parent="MarketGeometry/Blue walls/EastTrim" unique_id=2108839008 instance=ExtResource("4_ff4d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.483686, 7.3389015, 28.988726)
+
+[node name="shelfs" type="Node3D" parent="MarketGeometry" unique_id=1570463981]
+
+[node name="shelf-boxes2" parent="MarketGeometry/shelfs" unique_id=1623708453 instance=ExtResource("5_tb55b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.008265, 0.5, 4.6883144)
+
+[node name="shelf-boxes3" parent="MarketGeometry/shelfs" unique_id=2012040590 instance=ExtResource("5_tb55b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.866272, 0.5, 4.6883144)
+
+[node name="shelf-boxes4" parent="MarketGeometry/shelfs" unique_id=1449507622 instance=ExtResource("5_tb55b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5908327, 0.5, 4.6883144)
+
+[node name="shelf-boxes5" parent="MarketGeometry/shelfs" unique_id=1895687996 instance=ExtResource("5_tb55b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0191193, 0.5, 4.6883144)
+
+[node name="shelf-boxes6" parent="MarketGeometry/shelfs" unique_id=898518631 instance=ExtResource("5_tb55b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.54068, 0.5, 4.6883144)
+
+[node name="BagsAisle" type="Node3D" parent="MarketGeometry" unique_id=837330249]
+
+[node name="BagsWest" parent="MarketGeometry/BagsAisle" unique_id=2020946916 instance=ExtResource("7_kodnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0.5, -8.5)
+
+[node name="BagsMiddle" parent="MarketGeometry/BagsAisle" unique_id=1072803815 instance=ExtResource("7_kodnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.5, -8.5)
+
+[node name="BagsEast" parent="MarketGeometry/BagsAisle" unique_id=1046785638 instance=ExtResource("7_kodnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.1, 0.5, -8.5)
+
+[node name="freezers-standing2" parent="MarketGeometry" unique_id=2099757080 instance=ExtResource("6_mws8x")]
+transform = Transform3D(-0.059796274, 0, 0.99821067, 0, 1, 0, -0.99821067, 0, -0.059796274, -22.663544, 1.1920977, -21.81928)
+
+[node name="freezers-standing3" parent="MarketGeometry" unique_id=326689442 instance=ExtResource("6_mws8x")]
+transform = Transform3D(-0.059796274, 0, 0.99821067, 0, 1, 0, -0.99821067, 0, -0.059796274, -22.663544, 1.1920977, -11.257132)
+
+[node name="shelf-bags2" parent="MarketGeometry" unique_id=1003614586 instance=ExtResource("7_kodnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.488483, 0.5, -27.038307)
+
+[node name="shopping-basket2" parent="MarketGeometry" unique_id=1091843329 instance=ExtResource("8_gisa2")]
+transform = Transform3D(0.9383401, 0, -0.3457134, 0, 1, 0, 0.3457134, 0, 0.9383401, 14.56772, 0.5, -20.64494)
+
+[node name="table" parent="MarketGeometry" unique_id=743893546 instance=ExtResource("10_74eqt")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -22.72322, 0.5681629, 18.266249)
+
+[node name="BananaPickup" type="Marker3D" parent="." unique_id=1475367093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3796015, 0.125, 4.5)
+
+[node name="Interaction" type="Node3D" parent="BananaPickup" unique_id=1461302129]
+script = ExtResource("16_interaction")
+encounter_id = "bananas"
+title = "Take one bunch"
+
+[node name="Label3D" type="Label3D" parent="BananaPickup/Interaction" unique_id=1225743397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+pixel_size = 0.007
+billboard = 1
+text = "◆ Take one bunch"
+outline_size = 8
+
+[node name="Entry" type="Marker3D" parent="." unique_id=1366560178]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2, 0.125, 0)
+
+[node name="Exit" type="Marker3D" parent="." unique_id=763650504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.85, 0.125, 0)
+
+[node name="WorkerSpot" type="Marker3D" parent="." unique_id=2034737536]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2, 0.125, 1.9)
+
+[node name="CustomerSpot" type="Marker3D" parent="." unique_id=289866120]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 0.125, 5.7)
+
+[node name="CheckoutSpot" type="Marker3D" parent="." unique_id=930450134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7, 0.125, -5.45)
+
+[node name="Worker" parent="." unique_id=1503273860 instance=ExtResource("13_worker")]
+transform = Transform3D(-1.0452292, 0, 0.2910688, 0, 1.085, 0, -0.2910688, 0, -1.0452292, 5.3593473, 0.125, 1.9)
+
+[node name="Body" type="StaticBody3D" parent="Worker" unique_id=1635240375]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Worker/Body" unique_id=269236839]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+shape = SubResource("StandingCharacterCollision")
+
+[node name="Interaction" type="Node3D" parent="Worker" unique_id=1778525579]
+script = ExtResource("16_interaction")
+encounter_id = "worker"
+title = "Alex · Ask for help"
+
+[node name="Label3D" type="Label3D" parent="Worker/Interaction" unique_id=42490910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15, 0)
+pixel_size = 0.007
+billboard = 1
+text = "◆ Alex · Ask for help"
+outline_size = 8
+
+[node name="Customer" type="Node3D" parent="." unique_id=882869763]
+transform = Transform3D(-0.62817365, 0, -0.7780732, 0, 1, 0, 0.7780732, 0, -0.62817365, -1.8, 0.125, 5.7)
+script = ExtResource("17_talker")
+left_arm_name = "LeftArm_27"
+right_arm_name = "RightArm_51"
+idle_left_angle = 60.0
+idle_right_angle = 60.0
+arm_axis = Vector3(1, 0, 0)
+
+[node name="Model" parent="Customer" unique_id=315183672 instance=ExtResource("14_customer")]
+
+[node name="Body" type="StaticBody3D" parent="Customer" unique_id=1859637978]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Customer/Body" unique_id=551500401]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.85, 0)
+shape = SubResource("StandingCharacterCollision")
+
+[node name="Interaction" type="Node3D" parent="Customer" unique_id=703650736]
+script = ExtResource("16_interaction")
+encounter_id = "customer"
+title = "Sam · Say hello"
+
+[node name="Label3D" type="Label3D" parent="Customer/Interaction" unique_id=2036969503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15, 0)
+pixel_size = 0.007
+billboard = 1
+text = "◆ Sam · Say hello"
+outline_size = 8
+
+[node name="Cashier" parent="." unique_id=1400074151 instance=ExtResource("15_cashier")]
+transform = Transform3D(0.8628071, 0, -0.50553334, 0, 1, 0, 0.50553334, 0, 0.8628071, 6.1705885, 0.00017297268, -5.3470855)
+
+[node name="Body" type="StaticBody3D" parent="Cashier" unique_id=947240275]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cashier/Body" unique_id=542344861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+shape = SubResource("SeatedCharacterCollision")
+
+[node name="Interaction" type="Node3D" parent="Cashier" unique_id=382046883]
+script = ExtResource("16_interaction")
+encounter_id = "cashier"
+title = "Jo · Check out"
+
+[node name="Label3D" type="Label3D" parent="Cashier/Interaction" unique_id=1558067801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+pixel_size = 0.007
+billboard = 1
+text = "◆ Jo · Check out"
+outline_size = 8
+
+[node name="MarketExit" type="Node3D" parent="." unique_id=1551283164]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7, 0.125, 0)
+script = ExtResource("16_interaction")
+encounter_id = "exit"
+title = "Return to city"
+
+[node name="Label3D" type="Label3D" parent="MarketExit" unique_id=860037157]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15, 0)
+pixel_size = 0.007
+billboard = 1
+text = "◆ Return to city"
+outline_size = 8
+
+[node name="ExitSign" type="MeshInstance3D" parent="." unique_id=1842539138]
+transform = Transform3D(3.1391647e-07, 0, -1, 0, 1, 0, 1, 0, 3.1391647e-07, 7.12, 3, 0)
+mesh = SubResource("ExitSignMesh")
+
+[node name="ExitSignText" type="Label3D" parent="." unique_id=1200614361]
+transform = Transform3D(3.1391647e-07, 0, -1, 0, 1, 0, 1, 0, 3.1391647e-07, 7.05, 3, 0)
+pixel_size = 0.009
+modulate = Color(1, 0.97, 0.76, 1)
+outline_modulate = Color(0.05, 0.12, 0.15, 1)
+text = "EXIT"
+font_size = 60
+outline_size = 8
+
+[node name="CheckoutSign" type="MeshInstance3D" parent="." unique_id=2020985750]
+transform = Transform3D(3.1391647e-07, 0, -1, 0, 1, 0, 1, 0, 3.1391647e-07, 7.12, 3, -4.75)
+mesh = SubResource("ProduceSignMesh")
+
+[node name="CheckoutSignText" type="Label3D" parent="." unique_id=1126822328]
+transform = Transform3D(3.1391647e-07, 0, -1, 0, 1, 0, 1, 0, 3.1391647e-07, 7.05, 3, -4.75)
+pixel_size = 0.009
+modulate = Color(1, 0.97, 0.76, 1)
+outline_modulate = Color(0.05, 0.12, 0.15, 1)
+text = "CHECKOUT"
+font_size = 60
+outline_size = 8
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1258350463]
+transform = Transform3D(0.00950735, 0, 0.9999548, 0, 1, 0, -0.9999548, 0, 0.00950735, -6.677882, 2.3548737, 4.7944217)
+
+[node name="ProduceSignText" type="Label3D" parent="Node3D" unique_id=2141714874]
+transform = Transform3D(0.99999994, 0, 1.8626451e-09, 0, 1, 0, -1.8626451e-09, 0, 0.99999994, -0.06832981, 0.14242601, 0.0006494522)
+pixel_size = 0.009
+modulate = Color(1, 0.89, 0.39, 1)
+outline_modulate = Color(0.05, 0.12, 0.15, 1)
+text = "PRODUCE"
+font_size = 42
+outline_size = 10
+
+[node name="ProduceSign" type="MeshInstance3D" parent="Node3D" unique_id=1261189707]
+transform = Transform3D(-0.9993017, 0, -0.03736905, 0, 1, 0, 0.03736905, 0, -0.9993017, -0.10314655, 0.14480162, -0.07129288)
+mesh = SubResource("ProduceSignMesh")
+skeleton = NodePath("../..")
+
+[node name="IndoorEnvironment" type="WorldEnvironment" parent="." unique_id=891680958]
+environment = SubResource("MarketEnvironment")

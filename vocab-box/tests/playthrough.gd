@@ -50,6 +50,11 @@ func run() -> void:
 	game=load("res://scenes/main.tscn").instantiate()
 	root.add_child(game)
 	await process_frame
+	# This route verifies authored choices even when this checkout has provider keys in .env.
+	game.speech.available = false
+	game.speech.availability_reason = "Authored-choice route test"
+	game.speech.stt_status = "Unavailable"
+	game.update_speech_debug()
 	await snap("title-final")
 	press_button("Play")
 	await walk_to(Vector3(0,0,-1.3))
@@ -57,8 +62,8 @@ func run() -> void:
 	interact("entrance")
 	await create_timer(0.8).timeout
 	press_button("Let’s ask")
-	await walk_to(Vector3(-5,0,5))
-	await walk_to(Vector3(-5,0,3.4))
+	# Enter the right-side aisle, then follow the open south cross-aisle to produce.
+	await walk_to(Vector3(6.1,0,1.8))
 	interact("worker")
 	await snap("dialogue-final")
 	# Bad answer twice; helper appears and survives closing/reopening.
@@ -69,13 +74,13 @@ func run() -> void:
 	interact("worker")
 	press_button("Pip suggests")
 	press_button("Continue")
-	await walk_to(Vector3(-6,0,0))
-	await walk_to(Vector3(-6,0,-3.6))
+	await walk_to(Vector3(6.1,0,3.5))
+	await walk_to(Vector3(-3.2,0,3.5))
 	interact("bananas")
 	interact("bananas")
 	if game.mission.bananas!=1: fail("Duplicate bananas")
-	await walk_to(Vector3(-6,0,-3.9))
-	await walk_to(Vector3(5,0,-3.9))
+	await walk_to(Vector3(-1.2,0,3.5))
+	await walk_to(Vector3(-1.2,0,4.6))
 	interact("customer")
 	press_button("I like bananas.")
 	# Choice prefix can select either relevant answer; force an authored clear path.
@@ -85,8 +90,8 @@ func run() -> void:
 		press_button("Try a stronger")
 		press_button("I like bananas. Do")
 		press_button("Continue")
-	await walk_to(Vector3(5,0,0))
-	await walk_to(Vector3(5,0,2.5))
+	await walk_to(Vector3(6.1,0,4.6))
+	await walk_to(Vector3(6.1,0,-4.2))
 	await snap("shop-final")
 	interact("cashier")
 	press_button("I want these")
@@ -124,7 +129,7 @@ func run() -> void:
 	press_button("Restart mission")
 	await create_timer(0.8).timeout
 	press_button("Let’s ask")
-	await walk_to(Vector3(0,0,7))
+	await create_timer(0.2).timeout
 	interact("exit")
 	press_button("Keep shopping")
 	interact("exit")

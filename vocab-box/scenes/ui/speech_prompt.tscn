@@ -1,0 +1,96 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/speech_prompt.gd" id="1"]
+
+[sub_resource type="StyleBoxFlat" id="1"]
+bg_color = Color(0.08, 0.19, 0.23, 0.96)
+content_margin_left = 20.0
+content_margin_top = 14.0
+content_margin_right = 20.0
+content_margin_bottom = 14.0
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.98, 0.83, 0.48, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[node name="SpeechPrompt" type="PanelContainer"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -112.0
+offset_right = 280.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("1")
+script = ExtResource("1")
+
+[node name="Content" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Bars" type="Control" parent="Content"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(66, 40)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Bar1" type="ColorRect" parent="Content/Bars"]
+offset_left = 2.0
+offset_top = 8.0
+offset_right = 10.0
+offset_bottom = 32.0
+pivot_offset = Vector2(4, 12)
+mouse_filter = 2
+color = Color(0.98, 0.83, 0.48, 1)
+
+[node name="Bar2" type="ColorRect" parent="Content/Bars"]
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 24.0
+offset_bottom = 32.0
+pivot_offset = Vector2(4, 12)
+mouse_filter = 2
+color = Color(0.98, 0.83, 0.48, 1)
+
+[node name="Bar3" type="ColorRect" parent="Content/Bars"]
+offset_left = 30.0
+offset_top = 8.0
+offset_right = 38.0
+offset_bottom = 32.0
+pivot_offset = Vector2(4, 12)
+mouse_filter = 2
+color = Color(0.98, 0.83, 0.48, 1)
+
+[node name="Bar4" type="ColorRect" parent="Content/Bars"]
+offset_left = 44.0
+offset_top = 8.0
+offset_right = 52.0
+offset_bottom = 32.0
+pivot_offset = Vector2(4, 12)
+mouse_filter = 2
+color = Color(0.98, 0.83, 0.48, 1)
+
+[node name="Status" type="Label" parent="Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.97, 0.87, 1)
+theme_override_font_sizes/font_size = 21
+text = "Hold E to speak, then release to submit."
+vertical_alignment = 1
+autowrap_mode = 3

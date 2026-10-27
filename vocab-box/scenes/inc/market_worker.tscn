@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/market_talker_pose.gd" id="1_pose"]
+[ext_resource type="PackedScene" path="res://models/market/npc_1.glb" id="2_model"]
+
+[node name="Worker" type="Node3D"]
+script = ExtResource("1_pose")
+left_arm_name = "CC_Base_L_Upperarm_050"
+right_arm_name = "CC_Base_R_Upperarm_078"
+idle_left_angle = 65.0
+idle_right_angle = -65.0
+
+[node name="Model" parent="." instance=ExtResource("2_model")]

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dk0l5qu5nb5oa"]
+
+[ext_resource type="PackedScene" uid="uid://crae8ckl7cyy" path="res://scenes/inc/shopping_basket.tscn" id="1_basket"]
+[ext_resource type="PackedScene" uid="uid://yfgfudi0wy5e" path="res://models/kenney_food-kit/banana.glb" id="2_banana"]
+
+[node name="BananaBasket" type="Node3D" unique_id=1249092105]
+
+[node name="Basket" parent="." unique_id=500948573 instance=ExtResource("1_basket")]
+
+[node name="BananaA" parent="." unique_id=391692020 instance=ExtResource("2_banana")]
+transform = Transform3D(3.3659956, -0.3317494, -1.2328894, 0.2873333, 3.5840015, -0.17992501, 1.243991, 0.06982683, 3.3775153, -0.55, 0.9617901, -0.35)
+
+[node name="BananaB" parent="." unique_id=443709576 instance=ExtResource("2_banana")]
+transform = Transform3D(3.5511985, 0.24695508, 0.5366598, -0.28698832, 3.5796978, 0.25179425, -0.51636064, -0.2911629, 3.5508585, -0.2, 1.05179, 0.15)
+
+[node name="BananaC" parent="." unique_id=1633044715 instance=ExtResource("2_banana")]
+transform = Transform3D(3.285946, -0.10565904, 1.4667634, 0.17978108, 3.592625, -0.1439616, -1.4595333, 0.20465176, 3.2844906, 0.3, 0.99179006, -0.3)
+
+[node name="BananaD" parent="." unique_id=198237438 instance=ExtResource("2_banana")]
+transform = Transform3D(3.5390844, 0.14486897, -0.6433467, -0.10778948, 3.591905, 0.21587041, 0.650587, -0.19295488, 3.5354638, 0.55, 1.09179, 0.34)
+
+[node name="BananaE" parent="." unique_id=201829433 instance=ExtResource("2_banana")]
+transform = Transform3D(3.0084846, -0.20395647, 1.9665763, 0.42958558, 3.56268, -0.28769287, -1.9298903, 0.47509238, 3.0016346, -0.38, 1.1417902, 0.46)
+
+[node name="BananaF" parent="." unique_id=1785441212 instance=ExtResource("2_banana")]
+transform = Transform3D(2.9317994, -0.012708118, -2.0891123, 0.14378169, 3.592625, 0.17992501, 2.0841973, -0.2299667, 2.9263008, 0.05, 1.29179, -0.47)
+
+[node name="BananaG" parent="." unique_id=951822220 instance=ExtResource("2_banana")]
+transform = Transform3D(2.6017396, 0.20598042, 2.4796212, -0.21582724, 3.5928032, -0.0719952, -2.4787834, -0.09662695, 2.6088877, -0.63, 1.25179, 0.12)
+
+[node name="BananaH" parent="." unique_id=1876035596 instance=ExtResource("2_banana")]
+transform = Transform3D(2.4775813, -0.43012038, -2.5761573, 0.35852015, 3.5732427, -0.25179425, 2.5870938, -0.08326766, 2.5020015, 0.47, 1.31179, 0.07)

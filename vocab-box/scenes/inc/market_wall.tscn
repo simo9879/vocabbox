@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dh1qi5a8h6rlr"]
+
+[ext_resource type="PackedScene" uid="uid://870dhfhsredt" path="res://models/market/wall.glb" id="1_prhuu"]
+
+[node name="wall2" unique_id=1395556622 instance=ExtResource("1_prhuu")]
+
+[node name="wall" parent="." index="0" unique_id=921346042]
+transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0)

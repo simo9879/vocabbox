@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cwqc151f3a0np"]
+
+[ext_resource type="PackedScene" uid="uid://d0mube133tixs" path="res://models/market/wall-door-rotate.glb" id="1_door"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bj68k"]
+size = Vector3(10.626038, 10.732391, 1)
+
+[node name="MarketEntrance" unique_id=564853446 instance=ExtResource("1_door")]
+
+[node name="wall-door-rotate" parent="." index="0" unique_id=1834393296]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="2" unique_id=2067615321]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=91974278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.100982666, 4.8661957, 0)
+shape = SubResource("BoxShape3D_bj68k")

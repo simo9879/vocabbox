@@ -75,5 +75,10 @@ func _initialize() -> void:
 	var lines=JSON.parse_string(FileAccess.get_file_as_string("res://audio/manifest.json"))
 	for line in lines:
 		check(ResourceLoader.exists("res://audio/"+line.sha256_text()+".wav"),"voice exists: "+line)
+	# Shared answer text has a separate Pip recording for hints and results practice.
+	for encounter in lesson.encounters.values():
+		for choice in encounter.choices:
+			if choice[2] >= 1:
+				check(ResourceLoader.exists("res://audio/pip/"+choice[1].sha256_text()+".wav"),"Pip phrase exists: "+choice[1])
 	print("PASS: " if failures == 0 else "FAIL: ",count," checks; failures=",failures)
 	quit(0 if failures == 0 else 1)

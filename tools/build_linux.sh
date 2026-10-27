@@ -3,6 +3,13 @@
 set -eu
 REPO_DIR=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 GODOT_BIN=${GODOT_BIN:-godot}
+# The portable bundle copies one engine binary; use the standard build for this GDScript project.
+case "$("$GODOT_BIN" --version)" in
+  *.mono.*)
+    printf '%s\n' 'Use the standard Godot executable for this portable bundle.' >&2
+    exit 1
+    ;;
+esac
 mkdir -p "$REPO_DIR/builds/linux"
 "$GODOT_BIN" --headless --path "$REPO_DIR/vocab-box" --editor --import --quit
 "$GODOT_BIN" --headless --path "$REPO_DIR/vocab-box" --script res://tests/test_runner.gd

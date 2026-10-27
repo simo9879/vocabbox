@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://kru1rude3aki"]
+
+[ext_resource type="Script" uid="uid://csuoapltelewk" path="res://scripts/market_cashier_pose.gd" id="1_pose"]
+[ext_resource type="PackedScene" uid="uid://bm85lm2nnqqe6" path="res://models/market/russian_girl_mid_animated.glb" id="2_model"]
+[ext_resource type="PackedScene" uid="uid://qat3fm2f7anc" path="res://models/market/office_chair.glb" id="3_chair"]
+
+[node name="Cashier" type="Node3D" unique_id=1961767883]
+script = ExtResource("1_pose")
+
+[node name="Visual" type="Node3D" parent="." unique_id=801246775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.52, 0)
+
+[node name="Model" parent="Visual" unique_id=544995523 instance=ExtResource("2_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3517871, 0)
+
+[node name="Chair" parent="." unique_id=237579402 instance=ExtResource("3_chair")]
+transform = Transform3D(-0.13, 0, 0, 0, 0.13, 0, 0, 0, -0.13, 0, 0.629, 0.07751036)

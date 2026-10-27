@@ -9,20 +9,20 @@ Checked means the screen is laid out with authored Godot controls, with its pres
 - [x] Settings menu — `scenes/ui/settings_menu.tscn`; chalk slider tracks and handles are authored assets
 - [ ] Market introduction — currently built in `scripts/main.gd` using the shared dialogue panel
 - [ ] Leave confirmation — currently built in `scripts/main.gd` using the shared dialogue panel
-- [ ] Conversation — worker, customer, and cashier currently share code-built dialogue controls
+- [ ] Conversation — worker, customer, and cashier still share code-built dialogue controls; the bottom speech prompt and listening animation are now an authored scene
 - [ ] Answer feedback — retry, stronger answer, and continue states currently use code-built controls
 - [ ] Results — stars, scoring explanation, practiced phrases, and actions currently use code-built controls
 
 ## Other game UI
 
-- [ ] Objective HUD and four-item checklist
+- [x] Objective HUD and four-item checklist — authored notebook scene `scenes/ui/notebook_hud.tscn`; current objective and task progress come from the lesson and mission
 - [ ] Nearby interaction prompt and Pip help button
-- [ ] Subtitles and replay cue
+- [x] Bottom spoken line and replay cue — `scenes/ui/pip_paper_line.tscn` is active for play-mode narration and replay; centered dialogue text remains with the conversation panel
 - [ ] Travel fade overlay
 - [ ] Floating interaction labels in the world
 - [ ] Supermarket signs created through `Art.sign_text()`
 
-Dialogue and subtitles were deferred by the owner during the blackboard menu work. The existing city storefront signs are already authored in `city_shops.tscn`.
+Dialogue and subtitles were deferred by the owner during the blackboard menu work. The owner later approved the bottom spoken-line scene. The existing city storefront signs are already authored in `city_shops.tscn`.
 
 ## Review still needed
 

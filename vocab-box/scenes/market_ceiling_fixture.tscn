@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3]
+
+[sub_resource type="StandardMaterial3D" id="FrameMaterial"]
+albedo_color = Color(0.78, 0.81, 0.82, 1)
+metallic = 0.35
+roughness = 0.4
+
+[sub_resource type="StandardMaterial3D" id="DiffuserMaterial"]
+albedo_color = Color(0.96, 0.97, 1, 1)
+roughness = 0.85
+emission_enabled = true
+emission = Color(1, 0.95, 0.89, 1)
+emission_energy_multiplier = 2.5
+
+[sub_resource type="BoxMesh" id="FrameMesh"]
+material = SubResource("FrameMaterial")
+size = Vector3(3.2, 0.08, 1.1)
+
+[sub_resource type="BoxMesh" id="DiffuserMesh"]
+material = SubResource("DiffuserMaterial")
+size = Vector3(3.04, 0.012, 0.94)
+
+[node name="MarketCeilingFixture" type="Node3D"]
+
+[node name="Housing" type="MeshInstance3D" parent="."]
+mesh = SubResource("FrameMesh")
+
+[node name="Diffuser" type="MeshInstance3D" parent="."]
+position = Vector3(0, -0.044, 0)
+mesh = SubResource("DiffuserMesh")
+
+[node name="Downlight" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, -0.14, 0)
+light_color = Color(1, 0.96, 0.92, 1)
+light_energy = 0.5
+light_indirect_energy = 0.7
+spot_range = 10.5
+spot_angle = 80.0
+spot_angle_attenuation = 0.6

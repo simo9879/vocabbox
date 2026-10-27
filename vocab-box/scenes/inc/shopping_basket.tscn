@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://crae8ckl7cyy"]
+
+[ext_resource type="PackedScene" uid="uid://t8mqqumveujy" path="res://models/market/shopping-basket.glb" id="1_hiihh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hiihh"]
+size = Vector3(0.35, 0.25, 0.35000002)
+
+[node name="shopping-basket2" unique_id=1091843329 instance=ExtResource("1_hiihh")]
+
+[node name="shopping-basket" parent="." index="0" unique_id=1362195272]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="shopping-basket" index="0" unique_id=1232747014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="shopping-basket/StaticBody3D" index="0" unique_id=1557301098]
+shape = SubResource("BoxShape3D_hiihh")

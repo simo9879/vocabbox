@@ -2,6 +2,7 @@ extends RefCounted
 var path: String = "user://vocab-box.json"
 var best_stars: int = 0
 var volumes: Dictionary = {"Voice": 0.85, "Music": 0.25, "Effects": 0.5}
+
 func read_save() -> void:
 	if not FileAccess.file_exists(path): return
 	var parser = JSON.new()
@@ -14,6 +15,7 @@ func read_save() -> void:
 		for key in volumes:
 			var value = data.volumes.get(key)
 			if value is float or value is int: volumes[key] = clampf(float(value), 0, 1)
+			
 func write_save(stars: int = 0) -> bool:
 	best_stars = maxi(best_stars, clampi(stars, 0, 3))
 	var file = FileAccess.open(path + ".tmp", FileAccess.WRITE)
